@@ -7,14 +7,23 @@
 //
 
 #import "AppDelegate.h"
+#import "StoryCamViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] ;
+    StoryCamViewController *navCtrl = [[StoryCamViewController alloc] init];
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        [navCtrl setSourceType:UIImagePickerControllerSourceTypeCamera];
+        NSArray* availableMedia = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        navCtrl.mediaTypes = [NSArray arrayWithObject:availableMedia[1]];
+    }else{
+        [navCtrl setIsSingle:YES];
+        [navCtrl setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    self.window.rootViewController = navCtrl;
     [self.window makeKeyAndVisible];
     return YES;
 }

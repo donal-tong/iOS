@@ -7,6 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464E18C317D75DA500816CB6 /* AVCamCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18A217D75DA500816CB6 /* AVCamCaptureManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		464E18C417D75DA500816CB6 /* AVCamRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18A417D75DA500816CB6 /* AVCamRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		464E18C517D75DA500816CB6 /* AVCamUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18A617D75DA500816CB6 /* AVCamUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		464E18C617D75DA500816CB6 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18A717D75DA500816CB6 /* btn_back.png */; };
+		464E18C717D75DA500816CB6 /* btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18A817D75DA500816CB6 /* btn_back@2x.png */; };
+		464E18C817D75DA500816CB6 /* camera_album.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18A917D75DA500816CB6 /* camera_album.png */; };
+		464E18C917D75DA500816CB6 /* camera_album@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18AA17D75DA500816CB6 /* camera_album@2x.png */; };
+		464E18CA17D75DA500816CB6 /* camera_btn_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18AB17D75DA500816CB6 /* camera_btn_ok.png */; };
+		464E18CB17D75DA500816CB6 /* camera_btn_ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18AC17D75DA500816CB6 /* camera_btn_ok@2x.png */; };
+		464E18CC17D75DA500816CB6 /* camera_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18AD17D75DA500816CB6 /* camera_cancel.png */; };
+		464E18CD17D75DA500816CB6 /* camera_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18AE17D75DA500816CB6 /* camera_cancel@2x.png */; };
+		464E18CE17D75DA500816CB6 /* CamerasButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18AF17D75DA500816CB6 /* CamerasButtonDefault.png */; };
+		464E18CF17D75DA500816CB6 /* CamerasButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B017D75DA500816CB6 /* CamerasButtonDefault@2x.png */; };
+		464E18D017D75DA500816CB6 /* DoneButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B117D75DA500816CB6 /* DoneButtonDefault.png */; };
+		464E18D117D75DA500816CB6 /* DoneButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B217D75DA500816CB6 /* DoneButtonDefault@2x.png */; };
+		464E18D217D75DA500816CB6 /* FlashLightButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B317D75DA500816CB6 /* FlashLightButtonDefault.png */; };
+		464E18D317D75DA500816CB6 /* FlashLightButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B417D75DA500816CB6 /* FlashLightButtonDefault@2x.png */; };
+		464E18D417D75DA500816CB6 /* FunnyStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B517D75DA500816CB6 /* FunnyStar.png */; };
+		464E18D517D75DA500816CB6 /* FunnyStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B617D75DA500816CB6 /* FunnyStar@2x.png */; };
+		464E18D617D75DA500816CB6 /* FunnyStarTag.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B717D75DA500816CB6 /* FunnyStarTag.png */; };
+		464E18D717D75DA500816CB6 /* FunnyStarTag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B817D75DA500816CB6 /* FunnyStarTag@2x.png */; };
+		464E18D817D75DA500816CB6 /* OverLayBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18B917D75DA500816CB6 /* OverLayBackground.png */; };
+		464E18D917D75DA500816CB6 /* OverLayBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18BA17D75DA500816CB6 /* OverLayBackground@2x.png */; };
+		464E18DA17D75DA500816CB6 /* RetakePhotoButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18BB17D75DA500816CB6 /* RetakePhotoButtonDefault.png */; };
+		464E18DB17D75DA500816CB6 /* RetakePhotoButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18BC17D75DA500816CB6 /* RetakePhotoButtonDefault@2x.png */; };
+		464E18DC17D75DA500816CB6 /* StoryCamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18BE17D75DA500816CB6 /* StoryCamViewController.m */; };
+		464E18DD17D75DA500816CB6 /* TakePhotoButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18BF17D75DA500816CB6 /* TakePhotoButtonDefault.png */; };
+		464E18DE17D75DA500816CB6 /* TakePhotoButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464E18C017D75DA500816CB6 /* TakePhotoButtonDefault@2x.png */; };
+		464E18DF17D75DA500816CB6 /* WaterCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18C217D75DA500816CB6 /* WaterCameraViewController.m */; };
+		464E18E117D75E4700816CB6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E017D75E4700816CB6 /* CoreMedia.framework */; };
+		464E18E317D75E4C00816CB6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E217D75E4C00816CB6 /* CoreVideo.framework */; };
+		464E18E517D75E5200816CB6 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E417D75E5100816CB6 /* ImageIO.framework */; };
+		464E18E717D75E5700816CB6 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E617D75E5700816CB6 /* AssetsLibrary.framework */; };
+		464E18E917D75E5D00816CB6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E817D75E5D00816CB6 /* MobileCoreServices.framework */; };
+		464E18EB17D75E6400816CB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18EA17D75E6400816CB6 /* QuartzCore.framework */; };
+		464E18ED17D75E6900816CB6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18EC17D75E6900816CB6 /* AVFoundation.framework */; };
+		464E18FA17D75EC200816CB6 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18F117D75EC200816CB6 /* UIImage+Alpha.m */; };
+		464E18FB17D75EC200816CB6 /* UIImage+Cut.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18F317D75EC200816CB6 /* UIImage+Cut.m */; };
+		464E18FC17D75EC200816CB6 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18F517D75EC200816CB6 /* UIImage+Resize.m */; };
+		464E18FD17D75EC200816CB6 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18F717D75EC200816CB6 /* UIImage+RoundedCorner.m */; };
+		464E18FE17D75EC200816CB6 /* UIImage+SplitImageIntoTwoParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E18F917D75EC200816CB6 /* UIImage+SplitImageIntoTwoParts.m */; };
 		46BE37A117D4932700E33BC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BE37A017D4932700E33BC6 /* UIKit.framework */; };
 		46BE37A317D4932700E33BC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BE37A217D4932700E33BC6 /* Foundation.framework */; };
 		46BE37A517D4932700E33BC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BE37A417D4932700E33BC6 /* CoreGraphics.framework */; };
@@ -19,6 +60,57 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		464E18A117D75DA500816CB6 /* AVCamCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamCaptureManager.h; sourceTree = "<group>"; };
+		464E18A217D75DA500816CB6 /* AVCamCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamCaptureManager.m; sourceTree = "<group>"; };
+		464E18A317D75DA500816CB6 /* AVCamRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamRecorder.h; sourceTree = "<group>"; };
+		464E18A417D75DA500816CB6 /* AVCamRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamRecorder.m; sourceTree = "<group>"; };
+		464E18A517D75DA500816CB6 /* AVCamUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamUtilities.h; sourceTree = "<group>"; };
+		464E18A617D75DA500816CB6 /* AVCamUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamUtilities.m; sourceTree = "<group>"; };
+		464E18A717D75DA500816CB6 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
+		464E18A817D75DA500816CB6 /* btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_back@2x.png"; sourceTree = "<group>"; };
+		464E18A917D75DA500816CB6 /* camera_album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_album.png; sourceTree = "<group>"; };
+		464E18AA17D75DA500816CB6 /* camera_album@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_album@2x.png"; sourceTree = "<group>"; };
+		464E18AB17D75DA500816CB6 /* camera_btn_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_btn_ok.png; sourceTree = "<group>"; };
+		464E18AC17D75DA500816CB6 /* camera_btn_ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_btn_ok@2x.png"; sourceTree = "<group>"; };
+		464E18AD17D75DA500816CB6 /* camera_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_cancel.png; sourceTree = "<group>"; };
+		464E18AE17D75DA500816CB6 /* camera_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_cancel@2x.png"; sourceTree = "<group>"; };
+		464E18AF17D75DA500816CB6 /* CamerasButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CamerasButtonDefault.png; sourceTree = "<group>"; };
+		464E18B017D75DA500816CB6 /* CamerasButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CamerasButtonDefault@2x.png"; sourceTree = "<group>"; };
+		464E18B117D75DA500816CB6 /* DoneButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneButtonDefault.png; sourceTree = "<group>"; };
+		464E18B217D75DA500816CB6 /* DoneButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DoneButtonDefault@2x.png"; sourceTree = "<group>"; };
+		464E18B317D75DA500816CB6 /* FlashLightButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlashLightButtonDefault.png; sourceTree = "<group>"; };
+		464E18B417D75DA500816CB6 /* FlashLightButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlashLightButtonDefault@2x.png"; sourceTree = "<group>"; };
+		464E18B517D75DA500816CB6 /* FunnyStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FunnyStar.png; sourceTree = "<group>"; };
+		464E18B617D75DA500816CB6 /* FunnyStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FunnyStar@2x.png"; sourceTree = "<group>"; };
+		464E18B717D75DA500816CB6 /* FunnyStarTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FunnyStarTag.png; sourceTree = "<group>"; };
+		464E18B817D75DA500816CB6 /* FunnyStarTag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FunnyStarTag@2x.png"; sourceTree = "<group>"; };
+		464E18B917D75DA500816CB6 /* OverLayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OverLayBackground.png; sourceTree = "<group>"; };
+		464E18BA17D75DA500816CB6 /* OverLayBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OverLayBackground@2x.png"; sourceTree = "<group>"; };
+		464E18BB17D75DA500816CB6 /* RetakePhotoButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RetakePhotoButtonDefault.png; sourceTree = "<group>"; };
+		464E18BC17D75DA500816CB6 /* RetakePhotoButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RetakePhotoButtonDefault@2x.png"; sourceTree = "<group>"; };
+		464E18BD17D75DA500816CB6 /* StoryCamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryCamViewController.h; sourceTree = "<group>"; };
+		464E18BE17D75DA500816CB6 /* StoryCamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryCamViewController.m; sourceTree = "<group>"; };
+		464E18BF17D75DA500816CB6 /* TakePhotoButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TakePhotoButtonDefault.png; sourceTree = "<group>"; };
+		464E18C017D75DA500816CB6 /* TakePhotoButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TakePhotoButtonDefault@2x.png"; sourceTree = "<group>"; };
+		464E18C117D75DA500816CB6 /* WaterCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterCameraViewController.h; sourceTree = "<group>"; };
+		464E18C217D75DA500816CB6 /* WaterCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterCameraViewController.m; sourceTree = "<group>"; };
+		464E18E017D75E4700816CB6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		464E18E217D75E4C00816CB6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		464E18E417D75E5100816CB6 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		464E18E617D75E5700816CB6 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		464E18E817D75E5D00816CB6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		464E18EA17D75E6400816CB6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		464E18EC17D75E6900816CB6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		464E18F017D75EC200816CB6 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		464E18F117D75EC200816CB6 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		464E18F217D75EC200816CB6 /* UIImage+Cut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Cut.h"; sourceTree = "<group>"; };
+		464E18F317D75EC200816CB6 /* UIImage+Cut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Cut.m"; sourceTree = "<group>"; };
+		464E18F417D75EC200816CB6 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		464E18F517D75EC200816CB6 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		464E18F617D75EC200816CB6 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		464E18F717D75EC200816CB6 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		464E18F817D75EC200816CB6 /* UIImage+SplitImageIntoTwoParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SplitImageIntoTwoParts.h"; sourceTree = "<group>"; };
+		464E18F917D75EC200816CB6 /* UIImage+SplitImageIntoTwoParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SplitImageIntoTwoParts.m"; sourceTree = "<group>"; };
 		46BE379D17D4932700E33BC6 /* veno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = veno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BE37A017D4932700E33BC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46BE37A217D4932700E33BC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,6 +131,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464E18ED17D75E6900816CB6 /* AVFoundation.framework in Frameworks */,
+				464E18EB17D75E6400816CB6 /* QuartzCore.framework in Frameworks */,
+				464E18E917D75E5D00816CB6 /* MobileCoreServices.framework in Frameworks */,
+				464E18E717D75E5700816CB6 /* AssetsLibrary.framework in Frameworks */,
+				464E18E517D75E5200816CB6 /* ImageIO.framework in Frameworks */,
+				464E18E317D75E4C00816CB6 /* CoreVideo.framework in Frameworks */,
+				464E18E117D75E4700816CB6 /* CoreMedia.framework in Frameworks */,
 				46BE37A117D4932700E33BC6 /* UIKit.framework in Frameworks */,
 				46BE37A317D4932700E33BC6 /* Foundation.framework in Frameworks */,
 				46BE37A517D4932700E33BC6 /* CoreGraphics.framework in Frameworks */,
@@ -48,6 +147,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		464E18A017D75DA500816CB6 /* StoryCamera */ = {
+			isa = PBXGroup;
+			children = (
+				464E18EE17D75E8200816CB6 /* resources */,
+				464E18A117D75DA500816CB6 /* AVCamCaptureManager.h */,
+				464E18A217D75DA500816CB6 /* AVCamCaptureManager.m */,
+				464E18A317D75DA500816CB6 /* AVCamRecorder.h */,
+				464E18A417D75DA500816CB6 /* AVCamRecorder.m */,
+				464E18A517D75DA500816CB6 /* AVCamUtilities.h */,
+				464E18A617D75DA500816CB6 /* AVCamUtilities.m */,
+				464E18BD17D75DA500816CB6 /* StoryCamViewController.h */,
+				464E18BE17D75DA500816CB6 /* StoryCamViewController.m */,
+				464E18C117D75DA500816CB6 /* WaterCameraViewController.h */,
+				464E18C217D75DA500816CB6 /* WaterCameraViewController.m */,
+			);
+			path = StoryCamera;
+			sourceTree = "<group>";
+		};
+		464E18EE17D75E8200816CB6 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				464E18BF17D75DA500816CB6 /* TakePhotoButtonDefault.png */,
+				464E18C017D75DA500816CB6 /* TakePhotoButtonDefault@2x.png */,
+				464E18A717D75DA500816CB6 /* btn_back.png */,
+				464E18A817D75DA500816CB6 /* btn_back@2x.png */,
+				464E18A917D75DA500816CB6 /* camera_album.png */,
+				464E18AA17D75DA500816CB6 /* camera_album@2x.png */,
+				464E18AB17D75DA500816CB6 /* camera_btn_ok.png */,
+				464E18AC17D75DA500816CB6 /* camera_btn_ok@2x.png */,
+				464E18AD17D75DA500816CB6 /* camera_cancel.png */,
+				464E18AE17D75DA500816CB6 /* camera_cancel@2x.png */,
+				464E18AF17D75DA500816CB6 /* CamerasButtonDefault.png */,
+				464E18B017D75DA500816CB6 /* CamerasButtonDefault@2x.png */,
+				464E18B117D75DA500816CB6 /* DoneButtonDefault.png */,
+				464E18B217D75DA500816CB6 /* DoneButtonDefault@2x.png */,
+				464E18B317D75DA500816CB6 /* FlashLightButtonDefault.png */,
+				464E18B417D75DA500816CB6 /* FlashLightButtonDefault@2x.png */,
+				464E18B517D75DA500816CB6 /* FunnyStar.png */,
+				464E18B617D75DA500816CB6 /* FunnyStar@2x.png */,
+				464E18B717D75DA500816CB6 /* FunnyStarTag.png */,
+				464E18B817D75DA500816CB6 /* FunnyStarTag@2x.png */,
+				464E18B917D75DA500816CB6 /* OverLayBackground.png */,
+				464E18BA17D75DA500816CB6 /* OverLayBackground@2x.png */,
+				464E18BB17D75DA500816CB6 /* RetakePhotoButtonDefault.png */,
+				464E18BC17D75DA500816CB6 /* RetakePhotoButtonDefault@2x.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		464E18EF17D75EC200816CB6 /* UIImage-Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				464E18F017D75EC200816CB6 /* UIImage+Alpha.h */,
+				464E18F117D75EC200816CB6 /* UIImage+Alpha.m */,
+				464E18F217D75EC200816CB6 /* UIImage+Cut.h */,
+				464E18F317D75EC200816CB6 /* UIImage+Cut.m */,
+				464E18F417D75EC200816CB6 /* UIImage+Resize.h */,
+				464E18F517D75EC200816CB6 /* UIImage+Resize.m */,
+				464E18F617D75EC200816CB6 /* UIImage+RoundedCorner.h */,
+				464E18F717D75EC200816CB6 /* UIImage+RoundedCorner.m */,
+				464E18F817D75EC200816CB6 /* UIImage+SplitImageIntoTwoParts.h */,
+				464E18F917D75EC200816CB6 /* UIImage+SplitImageIntoTwoParts.m */,
+			);
+			path = "UIImage-Extensions";
+			sourceTree = "<group>";
+		};
 		46BE379417D4932700E33BC6 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +233,13 @@
 		46BE379F17D4932700E33BC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				464E18EC17D75E6900816CB6 /* AVFoundation.framework */,
+				464E18EA17D75E6400816CB6 /* QuartzCore.framework */,
+				464E18E817D75E5D00816CB6 /* MobileCoreServices.framework */,
+				464E18E617D75E5700816CB6 /* AssetsLibrary.framework */,
+				464E18E417D75E5100816CB6 /* ImageIO.framework */,
+				464E18E217D75E4C00816CB6 /* CoreVideo.framework */,
+				464E18E017D75E4700816CB6 /* CoreMedia.framework */,
 				46BE37A017D4932700E33BC6 /* UIKit.framework */,
 				46BE37A217D4932700E33BC6 /* Foundation.framework */,
 				46BE37A417D4932700E33BC6 /* CoreGraphics.framework */,
@@ -78,6 +250,8 @@
 		46BE37A617D4932700E33BC6 /* veno */ = {
 			isa = PBXGroup;
 			children = (
+				464E18EF17D75EC200816CB6 /* UIImage-Extensions */,
+				464E18A017D75DA500816CB6 /* StoryCamera */,
 				46BE37AF17D4932700E33BC6 /* AppDelegate.h */,
 				46BE37B017D4932700E33BC6 /* AppDelegate.m */,
 				46BE37A717D4932700E33BC6 /* Supporting Files */,
@@ -154,6 +328,30 @@
 				46BE37B317D4932700E33BC6 /* Default.png in Resources */,
 				46BE37B517D4932700E33BC6 /* Default@2x.png in Resources */,
 				46BE37B717D4932700E33BC6 /* Default-568h@2x.png in Resources */,
+				464E18C617D75DA500816CB6 /* btn_back.png in Resources */,
+				464E18C717D75DA500816CB6 /* btn_back@2x.png in Resources */,
+				464E18C817D75DA500816CB6 /* camera_album.png in Resources */,
+				464E18C917D75DA500816CB6 /* camera_album@2x.png in Resources */,
+				464E18CA17D75DA500816CB6 /* camera_btn_ok.png in Resources */,
+				464E18CB17D75DA500816CB6 /* camera_btn_ok@2x.png in Resources */,
+				464E18CC17D75DA500816CB6 /* camera_cancel.png in Resources */,
+				464E18CD17D75DA500816CB6 /* camera_cancel@2x.png in Resources */,
+				464E18CE17D75DA500816CB6 /* CamerasButtonDefault.png in Resources */,
+				464E18CF17D75DA500816CB6 /* CamerasButtonDefault@2x.png in Resources */,
+				464E18D017D75DA500816CB6 /* DoneButtonDefault.png in Resources */,
+				464E18D117D75DA500816CB6 /* DoneButtonDefault@2x.png in Resources */,
+				464E18D217D75DA500816CB6 /* FlashLightButtonDefault.png in Resources */,
+				464E18D317D75DA500816CB6 /* FlashLightButtonDefault@2x.png in Resources */,
+				464E18D417D75DA500816CB6 /* FunnyStar.png in Resources */,
+				464E18D517D75DA500816CB6 /* FunnyStar@2x.png in Resources */,
+				464E18D617D75DA500816CB6 /* FunnyStarTag.png in Resources */,
+				464E18D717D75DA500816CB6 /* FunnyStarTag@2x.png in Resources */,
+				464E18D817D75DA500816CB6 /* OverLayBackground.png in Resources */,
+				464E18D917D75DA500816CB6 /* OverLayBackground@2x.png in Resources */,
+				464E18DA17D75DA500816CB6 /* RetakePhotoButtonDefault.png in Resources */,
+				464E18DB17D75DA500816CB6 /* RetakePhotoButtonDefault@2x.png in Resources */,
+				464E18DD17D75DA500816CB6 /* TakePhotoButtonDefault.png in Resources */,
+				464E18DE17D75DA500816CB6 /* TakePhotoButtonDefault@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +364,16 @@
 			files = (
 				46BE37AD17D4932700E33BC6 /* main.m in Sources */,
 				46BE37B117D4932700E33BC6 /* AppDelegate.m in Sources */,
+				464E18C317D75DA500816CB6 /* AVCamCaptureManager.m in Sources */,
+				464E18C417D75DA500816CB6 /* AVCamRecorder.m in Sources */,
+				464E18C517D75DA500816CB6 /* AVCamUtilities.m in Sources */,
+				464E18DC17D75DA500816CB6 /* StoryCamViewController.m in Sources */,
+				464E18DF17D75DA500816CB6 /* WaterCameraViewController.m in Sources */,
+				464E18FA17D75EC200816CB6 /* UIImage+Alpha.m in Sources */,
+				464E18FB17D75EC200816CB6 /* UIImage+Cut.m in Sources */,
+				464E18FC17D75EC200816CB6 /* UIImage+Resize.m in Sources */,
+				464E18FD17D75EC200816CB6 /* UIImage+RoundedCorner.m in Sources */,
+				464E18FE17D75EC200816CB6 /* UIImage+SplitImageIntoTwoParts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +488,7 @@
 				46BE37BC17D4932700E33BC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

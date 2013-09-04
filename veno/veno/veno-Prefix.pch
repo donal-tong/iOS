@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'veno' target in the 'veno' project
+// Prefix header for all source files of the 'wowo' target in the 'wowo' project
 //
 
 #import <Availability.h>
@@ -9,6 +9,76 @@
 #endif
 
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <SystemConfiguration/SystemConfiguration.h>
 #endif
+
+#ifdef DEBUG
+//调试模式
+#define debugLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+
+//发布模式
+#else
+#define debugLog(...)
+
+
+#endif
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define isLogin [[NSUserDefaults standardUserDefaults] boolForKey:IsUserLogin]
+#define setIsLogin [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IsUserLogin];[[NSUserDefaults standardUserDefaults] synchronize];
+#define setLogout [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:IsUserLogin];[[NSUserDefaults standardUserDefaults] synchronize];
+
+#define setWeiboUserId(userId) [[NSUserDefaults standardUserDefaults] setObject:(userId) forKey:WeiBoUserId];[[NSUserDefaults standardUserDefaults] synchronize];
+#define getWeiboUser_ID [[NSUserDefaults standardUserDefaults] objectForKey:WeiBoUserId]
+
+#define setWeiboAccessToken(AccessToken) [[NSUserDefaults standardUserDefaults] setObject:(AccessToken) forKey:WeiboAccessToken];[[NSUserDefaults standardUserDefaults] synchronize];
+#define getWeiboAccessToken [[NSUserDefaults standardUserDefaults] objectForKey:WeiboAccessToken]
+
+#define setUserId(userId) [[NSUserDefaults standardUserDefaults] setObject:(userId) forKey:@"UserID"];[[NSUserDefaults standardUserDefaults] synchronize];
+#define getUser_ID [[NSUserDefaults standardUserDefaults] objectForKey:@"UserID"]
+
+//load data first
+#define setFirstYES [[NSUserDefaults standardUserDefaults] setBool:YES forKey:LoadFirst];[[NSUserDefaults standardUserDefaults] synchronize];
+#define setFirstNO [[NSUserDefaults standardUserDefaults] setBool:NO forKey:LoadFirst];[[NSUserDefaults standardUserDefaults] synchronize];
+#define getFirst [[NSUserDefaults standardUserDefaults] boolForKey:LoadFirst]
+
+#define setUserInfo(UserInfo)  [[NSUserDefaults standardUserDefaults] setObject:UserInfo forKey:@"UserInfo"];[[NSUserDefaults standardUserDefaults] synchronize];
+#define getUserInfo [[NSUserDefaults standardUserDefaults] objectForKey:@"UserInfo"]
+
+//nsuserdefault key
+#define IsUserLogin @"isUserLogin"
+#define WeiBoUserId @"weibo.user.id"
+#define WeiboAccessToken @"WeiboAccessToken"
+#define LoadFirst @"LoadFirst"
+
+//TABLEVIEW SCROLL STATE
+#define TABLEVIEW_ACTION_NORMAL 0
+#define TABLEVIEW_ACTION_INIT 1
+#define TABLEVIEW_ACTION_REFRESH 2
+#define TABLEVIEW_ACTION_SCROLL 3
+//TABLEVIEW DATA STATE
+#define TABLEVIEW_DATA_NORMAL 0
+#define TABLEVIEW_DATA_MORE 1
+#define TABLEVIEW_DATA_LOADING 2
+#define TABLEVIEW_DATA_FULL 3
+#define TABLEVIEW_DATA_EMPTY 4
+#define TABLEVIEW_DATA_ERROR 5
+
+#define TableViewDragUpHeight 10
+
+//actionsheetTag
+#define moreActionSheetTag 1
+#define wxActionSheetTag 2
+#define deleteSheetTag 3
+
+#define screenframe [[UIScreen mainScreen] bounds]
+
+#define StatusBarHeight 20
+
+#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
