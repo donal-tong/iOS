@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 Donal. All rights reserved.
 //
 
-#import "WaterCameraViewController.h"
+#import "VenoCameraViewController.h"
 #import "AVCamCaptureManager.h"
 #import "AVCamRecorder.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
-@interface WaterCameraViewController () <AVCamCaptureManagerDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@interface VenoCameraViewController () <AVCamCaptureManagerDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
 {
     UIView *menuView;
     UIView *overlyView;
@@ -32,7 +32,7 @@
 
 @end
 
-@implementation WaterCameraViewController
+@implementation VenoCameraViewController
 
 
 -(void)back

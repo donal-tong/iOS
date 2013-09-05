@@ -10,6 +10,6 @@
 
 @class AVCamCaptureManager, AVCamPreviewView, AVCaptureVideoPreviewLayer;
 
-@interface WaterCameraViewController : UIViewController
+@interface VenoCameraViewController : UIViewController
 
 @end

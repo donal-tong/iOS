@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "WaterCameraViewController.h"
+#import "VenoCameraViewController.h"
 
 @implementation AppDelegate
 
@@ -15,7 +15,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] ;
     [self AppBeginCreat];
-    WaterCameraViewController *vc = [[WaterCameraViewController alloc] init];
+    VenoCameraViewController *vc = [[VenoCameraViewController alloc] init];
     UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navCtrl;
     [navCtrl setNavigationBarHidden:YES];

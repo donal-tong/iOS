@@ -13,7 +13,7 @@
 		464B533D17D8DEBC000BC72F /* AVCamCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B531E17D8DEBC000BC72F /* AVCamCaptureManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		464B533E17D8DEBC000BC72F /* AVCamRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B532017D8DEBC000BC72F /* AVCamRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		464B533F17D8DEBC000BC72F /* AVCamUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B532217D8DEBC000BC72F /* AVCamUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		464B535817D8DEBC000BC72F /* WaterCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B533C17D8DEBC000BC72F /* WaterCameraViewController.m */; };
+		464B535817D8DEBC000BC72F /* VenoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B533C17D8DEBC000BC72F /* VenoCameraViewController.m */; };
 		464E18E117D75E4700816CB6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E017D75E4700816CB6 /* CoreMedia.framework */; };
 		464E18E317D75E4C00816CB6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E217D75E4C00816CB6 /* CoreVideo.framework */; };
 		464E18E517D75E5200816CB6 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E417D75E5100816CB6 /* ImageIO.framework */; };
@@ -44,8 +44,8 @@
 		464B532017D8DEBC000BC72F /* AVCamRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamRecorder.m; sourceTree = "<group>"; };
 		464B532117D8DEBC000BC72F /* AVCamUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamUtilities.h; sourceTree = "<group>"; };
 		464B532217D8DEBC000BC72F /* AVCamUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamUtilities.m; sourceTree = "<group>"; };
-		464B533B17D8DEBC000BC72F /* WaterCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterCameraViewController.h; sourceTree = "<group>"; };
-		464B533C17D8DEBC000BC72F /* WaterCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterCameraViewController.m; sourceTree = "<group>"; };
+		464B533B17D8DEBC000BC72F /* VenoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenoCameraViewController.h; sourceTree = "<group>"; };
+		464B533C17D8DEBC000BC72F /* VenoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenoCameraViewController.m; sourceTree = "<group>"; };
 		464E18E017D75E4700816CB6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		464E18E217D75E4C00816CB6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		464E18E417D75E5100816CB6 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -110,8 +110,8 @@
 				464B532017D8DEBC000BC72F /* AVCamRecorder.m */,
 				464B532117D8DEBC000BC72F /* AVCamUtilities.h */,
 				464B532217D8DEBC000BC72F /* AVCamUtilities.m */,
-				464B533B17D8DEBC000BC72F /* WaterCameraViewController.h */,
-				464B533C17D8DEBC000BC72F /* WaterCameraViewController.m */,
+				464B533B17D8DEBC000BC72F /* VenoCameraViewController.h */,
+				464B533C17D8DEBC000BC72F /* VenoCameraViewController.m */,
 			);
 			path = StoryCamera;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 				464B533D17D8DEBC000BC72F /* AVCamCaptureManager.m in Sources */,
 				464B533E17D8DEBC000BC72F /* AVCamRecorder.m in Sources */,
 				464B533F17D8DEBC000BC72F /* AVCamUtilities.m in Sources */,
-				464B535817D8DEBC000BC72F /* WaterCameraViewController.m in Sources */,
+				464B535817D8DEBC000BC72F /* VenoCameraViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
