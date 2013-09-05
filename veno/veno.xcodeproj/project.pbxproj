@@ -13,30 +13,6 @@
 		464B533D17D8DEBC000BC72F /* AVCamCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B531E17D8DEBC000BC72F /* AVCamCaptureManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		464B533E17D8DEBC000BC72F /* AVCamRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B532017D8DEBC000BC72F /* AVCamRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		464B533F17D8DEBC000BC72F /* AVCamUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B532217D8DEBC000BC72F /* AVCamUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		464B534017D8DEBC000BC72F /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532317D8DEBC000BC72F /* btn_back.png */; };
-		464B534117D8DEBC000BC72F /* btn_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532417D8DEBC000BC72F /* btn_back@2x.png */; };
-		464B534217D8DEBC000BC72F /* camera_album.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532517D8DEBC000BC72F /* camera_album.png */; };
-		464B534317D8DEBC000BC72F /* camera_album@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532617D8DEBC000BC72F /* camera_album@2x.png */; };
-		464B534417D8DEBC000BC72F /* camera_btn_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532717D8DEBC000BC72F /* camera_btn_ok.png */; };
-		464B534517D8DEBC000BC72F /* camera_btn_ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532817D8DEBC000BC72F /* camera_btn_ok@2x.png */; };
-		464B534617D8DEBC000BC72F /* camera_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532917D8DEBC000BC72F /* camera_cancel.png */; };
-		464B534717D8DEBC000BC72F /* camera_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532A17D8DEBC000BC72F /* camera_cancel@2x.png */; };
-		464B534817D8DEBC000BC72F /* CamerasButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532B17D8DEBC000BC72F /* CamerasButtonDefault.png */; };
-		464B534917D8DEBC000BC72F /* CamerasButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532C17D8DEBC000BC72F /* CamerasButtonDefault@2x.png */; };
-		464B534A17D8DEBC000BC72F /* DoneButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532D17D8DEBC000BC72F /* DoneButtonDefault.png */; };
-		464B534B17D8DEBC000BC72F /* DoneButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532E17D8DEBC000BC72F /* DoneButtonDefault@2x.png */; };
-		464B534C17D8DEBC000BC72F /* FlashLightButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B532F17D8DEBC000BC72F /* FlashLightButtonDefault.png */; };
-		464B534D17D8DEBC000BC72F /* FlashLightButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533017D8DEBC000BC72F /* FlashLightButtonDefault@2x.png */; };
-		464B534E17D8DEBC000BC72F /* FunnyStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533117D8DEBC000BC72F /* FunnyStar.png */; };
-		464B534F17D8DEBC000BC72F /* FunnyStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533217D8DEBC000BC72F /* FunnyStar@2x.png */; };
-		464B535017D8DEBC000BC72F /* FunnyStarTag.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533317D8DEBC000BC72F /* FunnyStarTag.png */; };
-		464B535117D8DEBC000BC72F /* FunnyStarTag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533417D8DEBC000BC72F /* FunnyStarTag@2x.png */; };
-		464B535217D8DEBC000BC72F /* OverLayBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533517D8DEBC000BC72F /* OverLayBackground.png */; };
-		464B535317D8DEBC000BC72F /* OverLayBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533617D8DEBC000BC72F /* OverLayBackground@2x.png */; };
-		464B535417D8DEBC000BC72F /* RetakePhotoButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533717D8DEBC000BC72F /* RetakePhotoButtonDefault.png */; };
-		464B535517D8DEBC000BC72F /* RetakePhotoButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533817D8DEBC000BC72F /* RetakePhotoButtonDefault@2x.png */; };
-		464B535617D8DEBC000BC72F /* TakePhotoButtonDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533917D8DEBC000BC72F /* TakePhotoButtonDefault.png */; };
-		464B535717D8DEBC000BC72F /* TakePhotoButtonDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464B533A17D8DEBC000BC72F /* TakePhotoButtonDefault@2x.png */; };
 		464B535817D8DEBC000BC72F /* WaterCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B533C17D8DEBC000BC72F /* WaterCameraViewController.m */; };
 		464E18E117D75E4700816CB6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E017D75E4700816CB6 /* CoreMedia.framework */; };
 		464E18E317D75E4C00816CB6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E217D75E4C00816CB6 /* CoreVideo.framework */; };
@@ -68,30 +44,6 @@
 		464B532017D8DEBC000BC72F /* AVCamRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamRecorder.m; sourceTree = "<group>"; };
 		464B532117D8DEBC000BC72F /* AVCamUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamUtilities.h; sourceTree = "<group>"; };
 		464B532217D8DEBC000BC72F /* AVCamUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamUtilities.m; sourceTree = "<group>"; };
-		464B532317D8DEBC000BC72F /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
-		464B532417D8DEBC000BC72F /* btn_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_back@2x.png"; sourceTree = "<group>"; };
-		464B532517D8DEBC000BC72F /* camera_album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_album.png; sourceTree = "<group>"; };
-		464B532617D8DEBC000BC72F /* camera_album@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_album@2x.png"; sourceTree = "<group>"; };
-		464B532717D8DEBC000BC72F /* camera_btn_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_btn_ok.png; sourceTree = "<group>"; };
-		464B532817D8DEBC000BC72F /* camera_btn_ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_btn_ok@2x.png"; sourceTree = "<group>"; };
-		464B532917D8DEBC000BC72F /* camera_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_cancel.png; sourceTree = "<group>"; };
-		464B532A17D8DEBC000BC72F /* camera_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera_cancel@2x.png"; sourceTree = "<group>"; };
-		464B532B17D8DEBC000BC72F /* CamerasButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CamerasButtonDefault.png; sourceTree = "<group>"; };
-		464B532C17D8DEBC000BC72F /* CamerasButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CamerasButtonDefault@2x.png"; sourceTree = "<group>"; };
-		464B532D17D8DEBC000BC72F /* DoneButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoneButtonDefault.png; sourceTree = "<group>"; };
-		464B532E17D8DEBC000BC72F /* DoneButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DoneButtonDefault@2x.png"; sourceTree = "<group>"; };
-		464B532F17D8DEBC000BC72F /* FlashLightButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlashLightButtonDefault.png; sourceTree = "<group>"; };
-		464B533017D8DEBC000BC72F /* FlashLightButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlashLightButtonDefault@2x.png"; sourceTree = "<group>"; };
-		464B533117D8DEBC000BC72F /* FunnyStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FunnyStar.png; sourceTree = "<group>"; };
-		464B533217D8DEBC000BC72F /* FunnyStar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FunnyStar@2x.png"; sourceTree = "<group>"; };
-		464B533317D8DEBC000BC72F /* FunnyStarTag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FunnyStarTag.png; sourceTree = "<group>"; };
-		464B533417D8DEBC000BC72F /* FunnyStarTag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FunnyStarTag@2x.png"; sourceTree = "<group>"; };
-		464B533517D8DEBC000BC72F /* OverLayBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OverLayBackground.png; sourceTree = "<group>"; };
-		464B533617D8DEBC000BC72F /* OverLayBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OverLayBackground@2x.png"; sourceTree = "<group>"; };
-		464B533717D8DEBC000BC72F /* RetakePhotoButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RetakePhotoButtonDefault.png; sourceTree = "<group>"; };
-		464B533817D8DEBC000BC72F /* RetakePhotoButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RetakePhotoButtonDefault@2x.png"; sourceTree = "<group>"; };
-		464B533917D8DEBC000BC72F /* TakePhotoButtonDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TakePhotoButtonDefault.png; sourceTree = "<group>"; };
-		464B533A17D8DEBC000BC72F /* TakePhotoButtonDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TakePhotoButtonDefault@2x.png"; sourceTree = "<group>"; };
 		464B533B17D8DEBC000BC72F /* WaterCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterCameraViewController.h; sourceTree = "<group>"; };
 		464B533C17D8DEBC000BC72F /* WaterCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterCameraViewController.m; sourceTree = "<group>"; };
 		464E18E017D75E4700816CB6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -158,30 +110,6 @@
 				464B532017D8DEBC000BC72F /* AVCamRecorder.m */,
 				464B532117D8DEBC000BC72F /* AVCamUtilities.h */,
 				464B532217D8DEBC000BC72F /* AVCamUtilities.m */,
-				464B532317D8DEBC000BC72F /* btn_back.png */,
-				464B532417D8DEBC000BC72F /* btn_back@2x.png */,
-				464B532517D8DEBC000BC72F /* camera_album.png */,
-				464B532617D8DEBC000BC72F /* camera_album@2x.png */,
-				464B532717D8DEBC000BC72F /* camera_btn_ok.png */,
-				464B532817D8DEBC000BC72F /* camera_btn_ok@2x.png */,
-				464B532917D8DEBC000BC72F /* camera_cancel.png */,
-				464B532A17D8DEBC000BC72F /* camera_cancel@2x.png */,
-				464B532B17D8DEBC000BC72F /* CamerasButtonDefault.png */,
-				464B532C17D8DEBC000BC72F /* CamerasButtonDefault@2x.png */,
-				464B532D17D8DEBC000BC72F /* DoneButtonDefault.png */,
-				464B532E17D8DEBC000BC72F /* DoneButtonDefault@2x.png */,
-				464B532F17D8DEBC000BC72F /* FlashLightButtonDefault.png */,
-				464B533017D8DEBC000BC72F /* FlashLightButtonDefault@2x.png */,
-				464B533117D8DEBC000BC72F /* FunnyStar.png */,
-				464B533217D8DEBC000BC72F /* FunnyStar@2x.png */,
-				464B533317D8DEBC000BC72F /* FunnyStarTag.png */,
-				464B533417D8DEBC000BC72F /* FunnyStarTag@2x.png */,
-				464B533517D8DEBC000BC72F /* OverLayBackground.png */,
-				464B533617D8DEBC000BC72F /* OverLayBackground@2x.png */,
-				464B533717D8DEBC000BC72F /* RetakePhotoButtonDefault.png */,
-				464B533817D8DEBC000BC72F /* RetakePhotoButtonDefault@2x.png */,
-				464B533917D8DEBC000BC72F /* TakePhotoButtonDefault.png */,
-				464B533A17D8DEBC000BC72F /* TakePhotoButtonDefault@2x.png */,
 				464B533B17D8DEBC000BC72F /* WaterCameraViewController.h */,
 				464B533C17D8DEBC000BC72F /* WaterCameraViewController.m */,
 			);
@@ -192,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				464B531C17D8DEBC000BC72F /* StoryCamera */,
-				464B52A917D8D6B8000BC72F /* AudioToolbox.framework */,
 				464B529F17D8D606000BC72F /* UIHelper */,
 				46BE37A617D4932700E33BC6 /* veno */,
 				46BE379F17D4932700E33BC6 /* Frameworks */,
@@ -211,6 +138,7 @@
 		46BE379F17D4932700E33BC6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				464B52A917D8D6B8000BC72F /* AudioToolbox.framework */,
 				464E18EC17D75E6900816CB6 /* AVFoundation.framework */,
 				464E18EA17D75E6400816CB6 /* QuartzCore.framework */,
 				464E18E817D75E5D00816CB6 /* MobileCoreServices.framework */,
@@ -304,30 +232,6 @@
 				46BE37B317D4932700E33BC6 /* Default.png in Resources */,
 				46BE37B517D4932700E33BC6 /* Default@2x.png in Resources */,
 				46BE37B717D4932700E33BC6 /* Default-568h@2x.png in Resources */,
-				464B534017D8DEBC000BC72F /* btn_back.png in Resources */,
-				464B534117D8DEBC000BC72F /* btn_back@2x.png in Resources */,
-				464B534217D8DEBC000BC72F /* camera_album.png in Resources */,
-				464B534317D8DEBC000BC72F /* camera_album@2x.png in Resources */,
-				464B534417D8DEBC000BC72F /* camera_btn_ok.png in Resources */,
-				464B534517D8DEBC000BC72F /* camera_btn_ok@2x.png in Resources */,
-				464B534617D8DEBC000BC72F /* camera_cancel.png in Resources */,
-				464B534717D8DEBC000BC72F /* camera_cancel@2x.png in Resources */,
-				464B534817D8DEBC000BC72F /* CamerasButtonDefault.png in Resources */,
-				464B534917D8DEBC000BC72F /* CamerasButtonDefault@2x.png in Resources */,
-				464B534A17D8DEBC000BC72F /* DoneButtonDefault.png in Resources */,
-				464B534B17D8DEBC000BC72F /* DoneButtonDefault@2x.png in Resources */,
-				464B534C17D8DEBC000BC72F /* FlashLightButtonDefault.png in Resources */,
-				464B534D17D8DEBC000BC72F /* FlashLightButtonDefault@2x.png in Resources */,
-				464B534E17D8DEBC000BC72F /* FunnyStar.png in Resources */,
-				464B534F17D8DEBC000BC72F /* FunnyStar@2x.png in Resources */,
-				464B535017D8DEBC000BC72F /* FunnyStarTag.png in Resources */,
-				464B535117D8DEBC000BC72F /* FunnyStarTag@2x.png in Resources */,
-				464B535217D8DEBC000BC72F /* OverLayBackground.png in Resources */,
-				464B535317D8DEBC000BC72F /* OverLayBackground@2x.png in Resources */,
-				464B535417D8DEBC000BC72F /* RetakePhotoButtonDefault.png in Resources */,
-				464B535517D8DEBC000BC72F /* RetakePhotoButtonDefault@2x.png in Resources */,
-				464B535617D8DEBC000BC72F /* TakePhotoButtonDefault.png in Resources */,
-				464B535717D8DEBC000BC72F /* TakePhotoButtonDefault@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
