@@ -7,25 +7,40 @@
 //
 
 #import "AppDelegate.h"
-#import "StoryCamViewController.h"
+#import "WaterCameraViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] ;
-    StoryCamViewController *navCtrl = [[StoryCamViewController alloc] init];
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        [navCtrl setSourceType:UIImagePickerControllerSourceTypeCamera];
-        NSArray* availableMedia = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
-        navCtrl.mediaTypes = [NSArray arrayWithObject:availableMedia[1]];
-    }else{
-        [navCtrl setIsSingle:YES];
-        [navCtrl setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    }
+    [self AppBeginCreat];
+    WaterCameraViewController *vc = [[WaterCameraViewController alloc] init];
+    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navCtrl;
+    [navCtrl setNavigationBarHidden:YES];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+-(void)AppBeginCreat
+{
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:[self getDataFilePathWithName:@"video"]] == NO)
+        [fileManager createDirectoryAtPath:[self getDataFilePathWithName:@"video"] withIntermediateDirectories:YES attributes:nil error:nil];
+    if ([fileManager fileExistsAtPath:[self getDataFilePathWithName:@"CompressedPhoto"]] == NO)
+        [fileManager createDirectoryAtPath:[self getDataFilePathWithName:@"CompressedPhoto"] withIntermediateDirectories:YES attributes:nil error:nil];
+    if ([fileManager fileExistsAtPath:[self getDataFilePathWithName:@"JsonData"]] == NO) {
+        [fileManager createDirectoryAtPath:[self getDataFilePathWithName:@"JsonData"] withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+}
+
+-(NSString*)getDataFilePathWithName:(NSString*)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *path = [documentsDirectory stringByAppendingPathComponent:name];
+    return path;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

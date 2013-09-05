@@ -51,6 +51,7 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <ImageIO/CGImageProperties.h>
+#import "Tool.h"
 
 @interface AVCamCaptureManager (RecorderDelegate) <AVCamRecorderDelegate>
 @end
@@ -202,7 +203,7 @@
     
     // Create session (use default AVCaptureSessionPresetHigh)
     AVCaptureSession *newCaptureSession = [[AVCaptureSession alloc] init];
-    [newCaptureSession setSessionPreset:AVCaptureSessionPresetPhoto];
+    [newCaptureSession setSessionPreset:AVCaptureSessionPreset640x480];
     
     // Add inputs and output to the capture session
     if ([newCaptureSession canAddInput:newVideoInput]) {
@@ -555,38 +556,43 @@ bail:
 -(void)recorder:(AVCamRecorder *)recorder recordingDidFinishToOutputFileURL:(NSURL *)outputFileURL error:(NSError *)error
 {
 	if ([[self recorder] recordsAudio] && ![[self recorder] recordsVideo]) {
-		// If the file was created on a device that doesn't support video recording, it can't be saved to the assets 
+		// If the file was created on a device that doesn't support video recording, it can't be saved to the assets
 		// library. Instead, save it in the app's Documents directory, whence it can be copied from the device via
 		// iTunes file sharing.
+        debugLog(@"aaa");
 		[self copyFileToDocuments:outputFileURL];
-
+        
 		if ([[UIDevice currentDevice] isMultitaskingSupported]) {
 			[[UIApplication sharedApplication] endBackgroundTask:[self backgroundRecordingID]];
-		}		
-
-		if ([[self delegate] respondsToSelector:@selector(captureManagerRecordingFinished:)]) {
-			[[self delegate] captureManagerRecordingFinished:self];
+		}
+        
+		if ([[self delegate] respondsToSelector:@selector(captureManagerRecordingFinished:withMov:)]) {
+			[[self delegate] captureManagerRecordingFinished:self withMov:nil];
 		}
 	}
-	else {	
-		ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-		[library writeVideoAtPathToSavedPhotosAlbum:outputFileURL
-									completionBlock:^(NSURL *assetURL, NSError *error) {
-										if (error) {
-											if ([[self delegate] respondsToSelector:@selector(captureManager:didFailWithError:)]) {
-												[[self delegate] captureManager:self didFailWithError:error];
-											}											
-										}
-										
-										if ([[UIDevice currentDevice] isMultitaskingSupported]) {
-											[[UIApplication sharedApplication] endBackgroundTask:[self backgroundRecordingID]];
-										}
-										
-										if ([[self delegate] respondsToSelector:@selector(captureManagerRecordingFinished:)]) {
-											[[self delegate] captureManagerRecordingFinished:self];
-										}
-									}];
-		[library release];
+	else {
+        debugLog(@"bbb");
+        NSData *videoData = [NSData dataWithContentsOfURL:outputFileURL ];
+        NSString *movFileName = [Tool getTimeStamp];
+        movFileName = [movFileName stringByAppendingString:@".mov"];
+        NSString *movFilePath = [[Tool returnVideoFilePath:@"/"] stringByAppendingPathComponent:movFileName];
+        NSError *error = nil;
+        [videoData writeToFile:movFilePath options:NSAtomicWrite error:&error];
+        if (error != nil) {
+            if ([[self delegate] respondsToSelector:@selector(captureManager:didFailWithError:)]) {
+                [[self delegate] captureManager:self didFailWithError:error];
+            }
+        }
+        else {
+            if ([[UIDevice currentDevice] isMultitaskingSupported]) {
+                [[UIApplication sharedApplication] endBackgroundTask:[self backgroundRecordingID]];
+            }
+            
+            
+            if ([[self delegate] respondsToSelector:@selector(captureManagerRecordingFinished:withMov:)]) {
+                [[self delegate] captureManagerRecordingFinished:self withMov:movFilePath];
+            }
+        }
 	}
 }
 

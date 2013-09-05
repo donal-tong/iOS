@@ -15,22 +15,14 @@
 @interface WaterCameraViewController () <AVCamCaptureManagerDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
 {
     UIView *menuView;
-    UIView *operateView;
-    UIButton *takePhotoButton;
-    UIImageView *stillImageView;
-    UIButton *retakePhotoButton;
-    UIImage *finishedImage;
-    
+    UIView *overlyView;
     AVCamCaptureManager *_captureManager;
     UIView *videoPreviewView;
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
-    
-    UIScrollView *waterScrollView;
-    UIPageControl *waterPageControl;
+    BOOL isVideoAction;
     
     UIView *touchView;
     
-    UIView *waterMarkView2;
 }
 
 - (CGPoint)convertToPointOfInterestFromViewCoordinates:(CGPoint)viewCoordinates;
@@ -42,135 +34,18 @@
 
 @implementation WaterCameraViewController
 
--(UIImage*)captureView:(UIView *)theView{
-    CGRect rect = theView.frame;
-    UIImage* image = nil;
-    UIGraphicsBeginImageContext(rect.size);
-    {
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        [theView.layer renderInContext:context];
-        image = UIGraphicsGetImageFromCurrentImageContext();
-    }
-    UIGraphicsEndImageContext();
-    
-    if (image != nil) {
-        debugLog(@"dfdfsfsdf");
-        return image;
-    }
-    return nil;
-}
-
-- (UIImage *)captureScrollView:(UIScrollView *)scrollView{
-    UIImage* image = nil;
-    UIGraphicsBeginImageContext(scrollView.contentSize);
-    {
-        CGPoint savedContentOffset = scrollView.contentOffset;
-        CGRect savedFrame = scrollView.frame;
-//        scrollView.contentOffset = CGPointZero;
-//        scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
-        
-        [scrollView.layer renderInContext: UIGraphicsGetCurrentContext()];
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        
-        scrollView.contentOffset = savedContentOffset;
-        scrollView.frame = savedFrame;
-    }
-    UIGraphicsEndImageContext();
-    
-    if (image != nil) {
-        return image;
-    }
-    return nil;
-}
-
-- (UIImage *)composeImage:(UIImage *)subImage toImage:(UIImage *)superImage atFrame:(CGRect)frame
-{
-    CGSize superSize = superImage.size;
-    CGFloat widthScale = frame.size.width / videoPreviewView.frame.size.width;
-    CGFloat heightScale = frame.size.height / videoPreviewView.frame.size.height;
-    CGFloat xScale = frame.origin.x / videoPreviewView.frame.size.width;
-    CGFloat yScale = frame.origin.y / videoPreviewView.frame.size.height;
-    CGRect subFrame = CGRectMake(xScale * superSize.width, yScale * superSize.height, widthScale * superSize.width, heightScale * superSize.height);
-    
-    UIGraphicsBeginImageContext(superSize);
-    [superImage drawInRect:CGRectMake(0, 0, superSize.width, superSize.height)];
-    [subImage drawInRect:subFrame];
-    __autoreleasing UIImage *finish = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return finish;
-}
 
 -(void)back
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)captureStillImage
-{
-    if (retakePhotoButton.superview == operateView) {
-        
-//        CGFloat pageWidth = waterScrollView.frame.size.width;
-//        int page = floor((waterScrollView.contentOffset.x-pageWidth/100)/pageWidth)+1;
-        UIImage *waterMark = [self captureView:self.view];
-//        debugLog(@"%i",page);
-//        UIImage *composedImage = [self composeImage:waterMarkView toImage:finishedImage atFrame:CGRectMake(0, 0, screenframe.size.width, videoPreviewView.frame.size.height)];
-        
-        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-        [library writeImageToSavedPhotosAlbum:[waterMark CGImage]
-                                  orientation:(ALAssetOrientation)[waterMark imageOrientation]
-                              completionBlock:^(NSURL *assetURL, NSError *error) {
-                                  if (error) {
-                                      
-                                  }
-                                  else {
-                                      debugLog(@"dfdf");
-                                  }
-                              }];
-    }
-    else {
-        // Capture a still image
-        [takePhotoButton setEnabled:NO];
-        [_captureManager captureStillImage];
-        
-        // Flash the screen white and fade it out to give UI feedback that a still image was taken
-        UIView *flashView = [[UIView alloc] initWithFrame:[videoPreviewView frame]];
-        [flashView setBackgroundColor:[UIColor whiteColor]];
-        [[self view] addSubview:flashView];
-        
-        [UIView animateWithDuration:.4f
-                         animations:^{
-                             [flashView setAlpha:0.f];
-                         }
-                         completion:^(BOOL finished){
-                             [flashView removeFromSuperview];
-                         }
-         ];
-    }
-}
-
--(void)retakePhoto
-{
-    [_captureManager.session startRunning];
-    [stillImageView setImage:nil];
-    [stillImageView setHidden:YES];
-    finishedImage = nil;
-    CATransition *animation = [CATransition  animation];
-    animation.delegate = self;
-    animation.duration = 0.3;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    animation.type = kCATransitionPush;
-    animation.subtype = kCATransitionFromRight;
-    [retakePhotoButton setAlpha:0.0f];
-    [retakePhotoButton.layer addAnimation:animation forKey:@"ApushOut"];
-    [retakePhotoButton performSelector:@selector(removeFromSuperview) withObject:nil afterDelay:0.3];
-}
 
 -(void)setUI
 {
     menuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenframe.size.width, 44)];
-    UIImageView *bg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenframe.size.width, menuView.frame.size.height)];
-    [bg setImage:[UIImage imageNamed:@"timelineMenuBackground.png"]];
-    [menuView addSubview:bg];
+    [menuView setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:menuView];
    
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [leftButton setFrame:CGRectMake(10, 8, 35, 29)];
@@ -180,100 +55,20 @@
     [leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [menuView addSubview:leftButton];
     
-    operateView = [[UIView alloc] initWithFrame:CGRectMake(0, screenframe.size.height-StatusBarHeight-50, screenframe.size.width, 50)];
-    takePhotoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [takePhotoButton setFrame:CGRectMake((operateView.frame.size.width-72)/2, 11, 72, 28)];
-    [takePhotoButton addTarget:self action:@selector(captureStillImage) forControlEvents:UIControlEventTouchUpInside];
-    [operateView addSubview:takePhotoButton];
     
-    retakePhotoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [retakePhotoButton setFrame:CGRectMake(10, 11, 72, 28)];
-    [retakePhotoButton addTarget:self action:@selector(retakePhoto) forControlEvents:UIControlEventTouchUpInside];
-//    [operateView addSubview:retakePhotoButton];
-    
-    videoPreviewView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, screenframe.size.width, screenframe.size.height-StatusBarHeight-44-50)];
+    videoPreviewView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, screenframe.size.width, screenframe.size.height-StatusBarHeight-44-96)];
     [videoPreviewView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:videoPreviewView];
     
-    stillImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 44, screenframe.size.width, screenframe.size.height-StatusBarHeight-44-50)];
-    [stillImageView setHidden:YES];
-//    [stillImageView setContentMode:UIViewContentModeScaleAspectFill];
-//    [stillImageView setClipsToBounds:YES];
-    [self.view addSubview:stillImageView];
-    
-    waterScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 44, screenframe.size.width, screenframe.size.height-StatusBarHeight-44-50)];
-    [waterScrollView setBouncesZoom:YES];
-    [waterScrollView setScrollEnabled:YES];
-    [waterScrollView setPagingEnabled:YES];
-    [waterScrollView setDelegate:self];
-    [waterScrollView setBackgroundColor:[UIColor clearColor]];
-    [waterScrollView setShowsHorizontalScrollIndicator:NO];
-    [waterScrollView setContentSize:CGSizeMake(screenframe.size.width*2, screenframe.size.height-StatusBarHeight-44-50)];
-    
-    waterPageControl = [[UIPageControl alloc] initWithFrame:CGRectMake((screenframe.size.width-38)/2, screenframe.size.height-StatusBarHeight-44-18-50, 38, 36)];
-    [waterPageControl setNumberOfPages:2];
-    [waterPageControl setCurrentPage:0];
-    [self.view addSubview:waterPageControl];
-    
-    UIImageView *image2 = [[UIImageView alloc] initWithFrame:CGRectMake(320, 50, 30, 30)];
-    [image2 setImage:[UIImage imageNamed:@"MySpaceCoverDefault.png"]];
-    [waterScrollView addSubview:image2];
-}
-
--(void)setWaterMarkView
-{
-    UIView *waterMarkView1 = [[UIView alloc] initWithFrame:CGRectMake(screenframe.size.width*0, 0, screenframe.size.width, waterScrollView.frame.size.height)];
-    [waterMarkView1 setBackgroundColor:[UIColor clearColor]];
-    [waterMarkView1 setTag:100];
-    [waterScrollView addSubview:waterMarkView1];
-    
-    waterMarkView2 = [[UIView alloc] initWithFrame:CGRectMake(screenframe.size.width*1, 0, screenframe.size.width, waterScrollView.frame.size.height)];
-    [waterMarkView2 setBackgroundColor:[UIColor clearColor]];
-    [waterMarkView2 setTag:101];
-    [waterScrollView addSubview:waterMarkView2];
-    UIImageView *image2 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 50, 30, 30)];
-    [image2 setImage:[UIImage imageNamed:@"MySpaceCoverDefault.png"]];
-    [waterMarkView2 addSubview:image2];
-}
-
-- (void)addHollowOpenToView:(UIView *)view
-{
-    CATransition *animation = [CATransition animation];
-    animation.duration = 0.5f;
-    animation.delegate = self;
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
-    animation.fillMode = kCAFillModeForwards;
-    animation.type = @"cameraIrisHollowOpen";
-    [view.layer addAnimation:animation forKey:@"animation"];
-}
-
-- (void)addHollowCloseToView:(UIView *)view
-{
-    CATransition *animation = [CATransition animation];//初始化动画
-    animation.duration = 0.5f;//间隔的时间
-    animation.timingFunction = UIViewAnimationCurveEaseInOut;
-    animation.type = @"cameraIrisHollowClose";
-    
-    [view.layer addAnimation:animation forKey:@"HollowClose"];
+    overlyView = [[UIView alloc] initWithFrame:CGRectMake(0, screenframe.size.height - 96, screenframe.size.width, 96)];
+    [overlyView setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:overlyView];
 }
 
 - (void)dealloc
 {
 	[_captureManager.session stopRunning];
     [_captureManager setDelegate:nil];
-    finishedImage = nil;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self addHollowOpenToView:videoPreviewView];
-    if (menuView.superview != self.view) 
-        [self.view addSubview:menuView];
-    if (waterScrollView.superview != self.view) 
-        [self.view addSubview:waterScrollView];
-    if (operateView.superview != self.view) 
-        [self.view addSubview:operateView];
 }
 
 - (void)viewDidLoad
@@ -297,7 +92,7 @@
 //               [newCaptureVideoPreviewLayer setOrientation:AVCaptureVideoOrientationPortrait];
 //           }
 			
-//			[newCaptureVideoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+			[newCaptureVideoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
 			
 			[viewLayer insertSublayer:newCaptureVideoPreviewLayer below:[[viewLayer sublayers] objectAtIndex:0]];
 			
@@ -314,14 +109,12 @@
 			UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToAutoFocus:)];
 			[singleTap setDelegate:self];
 			[singleTap setNumberOfTapsRequired:1];
-			[waterScrollView addGestureRecognizer:singleTap];
 			
             // Add a double tap gesture to reset the focus mode to continuous auto focus
 			UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToContinouslyAutoFocus:)];
 			[doubleTap setDelegate:self];
 			[doubleTap setNumberOfTapsRequired:2];
 			[singleTap requireGestureRecognizerToFail:doubleTap];
-			[waterScrollView addGestureRecognizer:doubleTap];
             
             touchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
             CALayer * layer = [touchView layer];
@@ -445,6 +238,60 @@
     
 }
 
+#pragma mark 录制视频
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    if (event.allTouches.count > 1) {
+        return;
+    }
+    UITouch *touch = [touches anyObject];
+    CGPoint currentLocation = [touch locationInView:self.view];
+    debugLog(@"%i",[[_captureManager recorder] isRecording]);
+    if (currentLocation.y > (menuView.frame.origin.y+menuView.frame.size.height) && currentLocation.y < overlyView.frame.origin.y && !isVideoAction) {
+        if ((![[_captureManager recorder] isRecording])  ) {
+            [_captureManager startRecording];
+        }
+        return;
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesMoved:touches withEvent:event];
+    if (event.allTouches.count > 1) {
+        return;
+    }
+    UITouch *touch = [touches anyObject];
+    CGPoint currentLocation = [touch locationInView:self.view];
+    
+    if ((currentLocation.y < (menuView.frame.origin.y+menuView.frame.size.height) || currentLocation.y > overlyView.frame.origin.y) && isVideoAction) {
+        if ([[_captureManager recorder] isRecording]) {
+            [_captureManager stopRecording];
+        }
+        return;
+    }
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    if (event.allTouches.count > 1) {
+        return;
+    }
+    UITouch *touch = [touches anyObject];
+    CGPoint currentLocation = [touch locationInView:self.view];
+    
+    if (currentLocation.y > (menuView.frame.origin.y+menuView.frame.size.height) && currentLocation.y < overlyView.frame.origin.y && isVideoAction) {
+        if ([[_captureManager recorder] isRecording]) {
+            debugLog(@"f");
+            [_captureManager stopRecording];
+        }
+        return;
+    }
+}
+
+
 #pragma mark AvCamManagerDelegate
 - (void)captureManager:(AVCamCaptureManager *)captureManager didFailWithError:(NSError *)error
 {
@@ -461,13 +308,14 @@
 - (void)captureManagerRecordingBegan:(AVCamCaptureManager *)captureManager
 {
     CFRunLoopPerformBlock(CFRunLoopGetMain(), kCFRunLoopCommonModes, ^(void) {
-        
+        isVideoAction = YES;
     });
 }
 
-- (void)captureManagerRecordingFinished:(AVCamCaptureManager *)captureManager
+- (void)captureManagerRecordingFinished:(AVCamCaptureManager *)captureManager withMov:(NSString *)path
 {
     CFRunLoopPerformBlock(CFRunLoopGetMain(), kCFRunLoopCommonModes, ^(void) {
+        isVideoAction = NO;
         
     });
 }
@@ -475,21 +323,6 @@
 - (void)captureManagerStillImageCaptured:(AVCamCaptureManager *)captureManager StillImage:(UIImage *)image
 {
     CFRunLoopPerformBlock(CFRunLoopGetMain(), kCFRunLoopCommonModes, ^(void) {
-        [takePhotoButton setEnabled:YES];
-        CATransition *animation = [CATransition animation];
-        animation.delegate = self;
-        animation.duration = 0.3;
-        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        animation.type = kCATransitionPush;
-        animation.subtype = kCATransitionFromLeft;
-        [retakePhotoButton setAlpha:1.0f];
-        [retakePhotoButton.layer addAnimation:animation forKey:@"ApushIn"];
-        [operateView addSubview:retakePhotoButton];
-        [stillImageView setImage:image];
-        [stillImageView setHidden:NO];
-        finishedImage = image;
-        [_captureManager.session stopRunning];
-        debugLog(@"%f,%f",image.size.width,image.size.height);
     });
 }
 
@@ -498,7 +331,7 @@
     
 }
 
-- (void) captureManagerDeviceOrientationChange:(AVCamCaptureManager *)captureManager withOrientation:(UIDeviceOrientation)orientation
+- (void) captureManagerDeviceOrientationChanged:(AVCamCaptureManager *)captureManager withOrientation:(UIDeviceOrientation)orientation
 {
 //    if (orientation == UIDeviceOrientationPortrait) {
 //        [UIView beginAnimations:nil context:nil];
@@ -562,14 +395,6 @@
 //        [UIView commitAnimations];
 //        
 //    }
-}
-
-#pragma mark scrollView Delegates
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGFloat pageWidth = scrollView.frame.size.width;
-    int page = floor((scrollView.contentOffset.x-pageWidth/100)/pageWidth)+1;
-    [waterPageControl setCurrentPage:page];
 }
 
 @end

@@ -84,7 +84,7 @@
 @optional
 - (void) captureManager:(AVCamCaptureManager *)captureManager didFailWithError:(NSError *)error;
 - (void) captureManagerRecordingBegan:(AVCamCaptureManager *)captureManager;
-- (void) captureManagerRecordingFinished:(AVCamCaptureManager *)captureManager;
+- (void) captureManagerRecordingFinished:(AVCamCaptureManager *)captureManager withMov:(NSString *)path;
 - (void) captureManagerStillImageCaptured:(AVCamCaptureManager *)captureManager StillImage:(UIImage *)image;
 - (void) captureManagerDeviceConfigurationChanged:(AVCamCaptureManager *)captureManager;
 - (void) captureManagerDeviceOrientationChanged:(AVCamCaptureManager *)captureManager withOrientation:(UIDeviceOrientation)orientation;
