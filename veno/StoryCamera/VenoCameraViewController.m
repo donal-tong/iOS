@@ -11,17 +11,24 @@
 #import "AVCamRecorder.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "AVCamUtilities.h"
+
+#define VideoDuration 6
 
 @interface VenoCameraViewController () <AVCamCaptureManagerDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
 {
     UIView *menuView;
+    UIView *videoLapView;
+    UIButton *actionDoneButton;
     UIView *overlyView;
     AVCamCaptureManager *_captureManager;
     UIView *videoPreviewView;
     AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
     BOOL isVideoAction;
-    
     UIView *touchView;
+    //time
+    NSTimer *levelTimer;
+    float time;
     
 }
 
@@ -34,27 +41,29 @@
 
 @implementation VenoCameraViewController
 
-
--(void)back
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
 -(void)setUI
 {
     menuView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenframe.size.width, 44)];
     [menuView setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:menuView];
-   
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftButton setFrame:CGRectMake(10, 8, 35, 29)];
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"menuButtonDefault.png"] forState:UIControlStateNormal];
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"menuButtonActive.png"] forState:UIControlStateHighlighted];
-    [leftButton setImage:[UIImage imageNamed:@"spacelistButton.png"] forState:UIControlStateNormal];
-    [leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [menuView addSubview:leftButton];
     
+    videoLapView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, menuView.frame.size.height)];
+    [videoLapView setBackgroundColor:[UIColor colorWithRed:0/255.0 green:190/255.0 blue:143/255.0 alpha:1.0]];
+    [menuView addSubview:videoLapView];
+    
+    UIButton *actionCancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [actionCancelButton setFrame:CGRectMake(0, 0, 44, 44)];
+    [actionCancelButton setBackgroundImage:[UIImage imageNamed:@"ActionCancelDefault.png"] forState:UIControlStateNormal];
+    [actionCancelButton setBackgroundImage:[UIImage imageNamed:@"ActionCancelPressed.png"] forState:UIControlStateHighlighted];
+    [menuView addSubview:actionCancelButton];
+    
+    actionDoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [actionDoneButton setFrame:CGRectMake(screenframe.size.width-44, 0, 44, 44)];
+    [actionDoneButton setBackgroundImage:[UIImage imageNamed:@"ActionDoneDisabled.png"] forState:UIControlStateDisabled];
+    [actionDoneButton setBackgroundImage:[UIImage imageNamed:@"ActionDoneEnabled.png"] forState:UIControlStateNormal];
+    [actionDoneButton setBackgroundImage:[UIImage imageNamed:@"ActionDonePressed.png"] forState:UIControlStateHighlighted];
+    [actionDoneButton setEnabled:NO];
+    [menuView addSubview:actionDoneButton];
     
     videoPreviewView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, screenframe.size.width, screenframe.size.height-StatusBarHeight-44-96)];
     [videoPreviewView setBackgroundColor:[UIColor clearColor]];
@@ -83,15 +92,11 @@
 			AVCaptureVideoPreviewLayer *newCaptureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:[_captureManager session]];
 			UIView *view = videoPreviewView;
 			CALayer *viewLayer = [view layer];
-//			[viewLayer setMasksToBounds:YES];
+			[viewLayer setMasksToBounds:YES];
 			
 			CGRect bounds = [view bounds];
 			[newCaptureVideoPreviewLayer setFrame:bounds];
-			
-//           if ([newCaptureVideoPreviewLayer isOrientationSupported]) {
-//               [newCaptureVideoPreviewLayer setOrientation:AVCaptureVideoOrientationPortrait];
-//           }
-			
+			            			
 			[newCaptureVideoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
 			
 			[viewLayer insertSublayer:newCaptureVideoPreviewLayer below:[[viewLayer sublayers] objectAtIndex:0]];
@@ -102,9 +107,6 @@
 			dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 				[_captureManager.session startRunning];
 			});
-			
-//            [self updateButtonStates];
-            
             // Add a single tap gesture to focus on the point tapped, then lock focus
 			UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapToAutoFocus:)];
 			[singleTap setDelegate:self];
@@ -239,6 +241,33 @@
 }
 
 #pragma mark 录制视频
+-(void)updateTimer
+{
+    if (isVideoAction) {
+        time += 0.03;
+        CGRect videoLapRect = [videoLapView frame];
+        videoLapRect.size.width = time * screenframe.size.width / VideoDuration;
+        [videoLapView setFrame:videoLapRect];
+        if (time >= VideoDuration) {
+            [self videoRecordEnd];
+            time = VideoDuration;
+        }
+    }
+}
+
+-(void)videoRecordEnd
+{
+    debugLog(@"f");
+    [levelTimer invalidate];
+    [_captureManager stopRecording];
+    if (time > 3) {
+        [actionDoneButton setEnabled:YES];
+    }
+    else{
+        [actionDoneButton setEnabled:NO];
+    }
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [super touchesBegan:touches withEvent:event];
@@ -251,6 +280,7 @@
     if (currentLocation.y > (menuView.frame.origin.y+menuView.frame.size.height) && currentLocation.y < overlyView.frame.origin.y && !isVideoAction) {
         if ((![[_captureManager recorder] isRecording])  ) {
             [_captureManager startRecording];
+            levelTimer = [NSTimer scheduledTimerWithTimeInterval: 0.03 target: self selector: @selector(updateTimer) userInfo:nil repeats: YES];
         }
         return;
     }
@@ -267,7 +297,7 @@
     
     if ((currentLocation.y < (menuView.frame.origin.y+menuView.frame.size.height) || currentLocation.y > overlyView.frame.origin.y) && isVideoAction) {
         if ([[_captureManager recorder] isRecording]) {
-            [_captureManager stopRecording];
+            [self videoRecordEnd];
         }
         return;
     }
@@ -284,8 +314,7 @@
     
     if (currentLocation.y > (menuView.frame.origin.y+menuView.frame.size.height) && currentLocation.y < overlyView.frame.origin.y && isVideoAction) {
         if ([[_captureManager recorder] isRecording]) {
-            debugLog(@"f");
-            [_captureManager stopRecording];
+            [self videoRecordEnd];
         }
         return;
     }

@@ -14,6 +14,24 @@
 		464B533E17D8DEBC000BC72F /* AVCamRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B532017D8DEBC000BC72F /* AVCamRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		464B533F17D8DEBC000BC72F /* AVCamUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B532217D8DEBC000BC72F /* AVCamUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		464B535817D8DEBC000BC72F /* VenoCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 464B533C17D8DEBC000BC72F /* VenoCameraViewController.m */; };
+		464CBFEB17D985B2006A7250 /* ActionCancelDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFD917D985B2006A7250 /* ActionCancelDefault.png */; };
+		464CBFEC17D985B2006A7250 /* ActionCancelDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFDA17D985B2006A7250 /* ActionCancelDefault@2x.png */; };
+		464CBFED17D985B2006A7250 /* ActionCancelPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFDB17D985B2006A7250 /* ActionCancelPressed.png */; };
+		464CBFEE17D985B2006A7250 /* ActionCancelPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFDC17D985B2006A7250 /* ActionCancelPressed@2x.png */; };
+		464CBFEF17D985B2006A7250 /* ActionDoneDisabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFDD17D985B2006A7250 /* ActionDoneDisabled.png */; };
+		464CBFF017D985B2006A7250 /* ActionDoneDisabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFDE17D985B2006A7250 /* ActionDoneDisabled@2x.png */; };
+		464CBFF117D985B2006A7250 /* ActionDoneEnabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFDF17D985B2006A7250 /* ActionDoneEnabled.png */; };
+		464CBFF217D985B2006A7250 /* ActionDoneEnabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE017D985B2006A7250 /* ActionDoneEnabled@2x.png */; };
+		464CBFF317D985B2006A7250 /* ActionDonePressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE117D985B2006A7250 /* ActionDonePressed.png */; };
+		464CBFF417D985B2006A7250 /* ActionDonePressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE217D985B2006A7250 /* ActionDonePressed@2x.png */; };
+		464CBFF517D985B2006A7250 /* LastViewDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE317D985B2006A7250 /* LastViewDefault.png */; };
+		464CBFF617D985B2006A7250 /* LastViewDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE417D985B2006A7250 /* LastViewDefault@2x.png */; };
+		464CBFF717D985B2006A7250 /* ShootCamerasDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE517D985B2006A7250 /* ShootCamerasDefault.png */; };
+		464CBFF817D985B2006A7250 /* ShootCamerasDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE617D985B2006A7250 /* ShootCamerasDefault@2x.png */; };
+		464CBFF917D985B2006A7250 /* ShootFocusDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE717D985B2006A7250 /* ShootFocusDefault.png */; };
+		464CBFFA17D985B2006A7250 /* ShootFocusDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE817D985B2006A7250 /* ShootFocusDefault@2x.png */; };
+		464CBFFB17D985B2006A7250 /* ShootFrameDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE917D985B2006A7250 /* ShootFrameDefault.png */; };
+		464CBFFC17D985B2006A7250 /* ShootFrameDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFEA17D985B2006A7250 /* ShootFrameDefault@2x.png */; };
 		464E18E117D75E4700816CB6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E017D75E4700816CB6 /* CoreMedia.framework */; };
 		464E18E317D75E4C00816CB6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E217D75E4C00816CB6 /* CoreVideo.framework */; };
 		464E18E517D75E5200816CB6 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E417D75E5100816CB6 /* ImageIO.framework */; };
@@ -46,6 +64,24 @@
 		464B532217D8DEBC000BC72F /* AVCamUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamUtilities.m; sourceTree = "<group>"; };
 		464B533B17D8DEBC000BC72F /* VenoCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenoCameraViewController.h; sourceTree = "<group>"; };
 		464B533C17D8DEBC000BC72F /* VenoCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenoCameraViewController.m; sourceTree = "<group>"; };
+		464CBFD917D985B2006A7250 /* ActionCancelDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActionCancelDefault.png; sourceTree = "<group>"; };
+		464CBFDA17D985B2006A7250 /* ActionCancelDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionCancelDefault@2x.png"; sourceTree = "<group>"; };
+		464CBFDB17D985B2006A7250 /* ActionCancelPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActionCancelPressed.png; sourceTree = "<group>"; };
+		464CBFDC17D985B2006A7250 /* ActionCancelPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionCancelPressed@2x.png"; sourceTree = "<group>"; };
+		464CBFDD17D985B2006A7250 /* ActionDoneDisabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActionDoneDisabled.png; sourceTree = "<group>"; };
+		464CBFDE17D985B2006A7250 /* ActionDoneDisabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionDoneDisabled@2x.png"; sourceTree = "<group>"; };
+		464CBFDF17D985B2006A7250 /* ActionDoneEnabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActionDoneEnabled.png; sourceTree = "<group>"; };
+		464CBFE017D985B2006A7250 /* ActionDoneEnabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionDoneEnabled@2x.png"; sourceTree = "<group>"; };
+		464CBFE117D985B2006A7250 /* ActionDonePressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActionDonePressed.png; sourceTree = "<group>"; };
+		464CBFE217D985B2006A7250 /* ActionDonePressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionDonePressed@2x.png"; sourceTree = "<group>"; };
+		464CBFE317D985B2006A7250 /* LastViewDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LastViewDefault.png; sourceTree = "<group>"; };
+		464CBFE417D985B2006A7250 /* LastViewDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LastViewDefault@2x.png"; sourceTree = "<group>"; };
+		464CBFE517D985B2006A7250 /* ShootCamerasDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShootCamerasDefault.png; sourceTree = "<group>"; };
+		464CBFE617D985B2006A7250 /* ShootCamerasDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShootCamerasDefault@2x.png"; sourceTree = "<group>"; };
+		464CBFE717D985B2006A7250 /* ShootFocusDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShootFocusDefault.png; sourceTree = "<group>"; };
+		464CBFE817D985B2006A7250 /* ShootFocusDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShootFocusDefault@2x.png"; sourceTree = "<group>"; };
+		464CBFE917D985B2006A7250 /* ShootFrameDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShootFrameDefault.png; sourceTree = "<group>"; };
+		464CBFEA17D985B2006A7250 /* ShootFrameDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShootFrameDefault@2x.png"; sourceTree = "<group>"; };
 		464E18E017D75E4700816CB6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		464E18E217D75E4C00816CB6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		464E18E417D75E5100816CB6 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -104,6 +140,7 @@
 		464B531C17D8DEBC000BC72F /* StoryCamera */ = {
 			isa = PBXGroup;
 			children = (
+				464CBFFD17D985B7006A7250 /* Resource */,
 				464B531D17D8DEBC000BC72F /* AVCamCaptureManager.h */,
 				464B531E17D8DEBC000BC72F /* AVCamCaptureManager.m */,
 				464B531F17D8DEBC000BC72F /* AVCamRecorder.h */,
@@ -114,6 +151,31 @@
 				464B533C17D8DEBC000BC72F /* VenoCameraViewController.m */,
 			);
 			path = StoryCamera;
+			sourceTree = "<group>";
+		};
+		464CBFFD17D985B7006A7250 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				464CBFD917D985B2006A7250 /* ActionCancelDefault.png */,
+				464CBFDA17D985B2006A7250 /* ActionCancelDefault@2x.png */,
+				464CBFDB17D985B2006A7250 /* ActionCancelPressed.png */,
+				464CBFDC17D985B2006A7250 /* ActionCancelPressed@2x.png */,
+				464CBFDD17D985B2006A7250 /* ActionDoneDisabled.png */,
+				464CBFDE17D985B2006A7250 /* ActionDoneDisabled@2x.png */,
+				464CBFDF17D985B2006A7250 /* ActionDoneEnabled.png */,
+				464CBFE017D985B2006A7250 /* ActionDoneEnabled@2x.png */,
+				464CBFE117D985B2006A7250 /* ActionDonePressed.png */,
+				464CBFE217D985B2006A7250 /* ActionDonePressed@2x.png */,
+				464CBFE317D985B2006A7250 /* LastViewDefault.png */,
+				464CBFE417D985B2006A7250 /* LastViewDefault@2x.png */,
+				464CBFE517D985B2006A7250 /* ShootCamerasDefault.png */,
+				464CBFE617D985B2006A7250 /* ShootCamerasDefault@2x.png */,
+				464CBFE717D985B2006A7250 /* ShootFocusDefault.png */,
+				464CBFE817D985B2006A7250 /* ShootFocusDefault@2x.png */,
+				464CBFE917D985B2006A7250 /* ShootFrameDefault.png */,
+				464CBFEA17D985B2006A7250 /* ShootFrameDefault@2x.png */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 		46BE379417D4932700E33BC6 = {
@@ -232,6 +294,24 @@
 				46BE37B317D4932700E33BC6 /* Default.png in Resources */,
 				46BE37B517D4932700E33BC6 /* Default@2x.png in Resources */,
 				46BE37B717D4932700E33BC6 /* Default-568h@2x.png in Resources */,
+				464CBFEB17D985B2006A7250 /* ActionCancelDefault.png in Resources */,
+				464CBFEC17D985B2006A7250 /* ActionCancelDefault@2x.png in Resources */,
+				464CBFED17D985B2006A7250 /* ActionCancelPressed.png in Resources */,
+				464CBFEE17D985B2006A7250 /* ActionCancelPressed@2x.png in Resources */,
+				464CBFEF17D985B2006A7250 /* ActionDoneDisabled.png in Resources */,
+				464CBFF017D985B2006A7250 /* ActionDoneDisabled@2x.png in Resources */,
+				464CBFF117D985B2006A7250 /* ActionDoneEnabled.png in Resources */,
+				464CBFF217D985B2006A7250 /* ActionDoneEnabled@2x.png in Resources */,
+				464CBFF317D985B2006A7250 /* ActionDonePressed.png in Resources */,
+				464CBFF417D985B2006A7250 /* ActionDonePressed@2x.png in Resources */,
+				464CBFF517D985B2006A7250 /* LastViewDefault.png in Resources */,
+				464CBFF617D985B2006A7250 /* LastViewDefault@2x.png in Resources */,
+				464CBFF717D985B2006A7250 /* ShootCamerasDefault.png in Resources */,
+				464CBFF817D985B2006A7250 /* ShootCamerasDefault@2x.png in Resources */,
+				464CBFF917D985B2006A7250 /* ShootFocusDefault.png in Resources */,
+				464CBFFA17D985B2006A7250 /* ShootFocusDefault@2x.png in Resources */,
+				464CBFFB17D985B2006A7250 /* ShootFrameDefault.png in Resources */,
+				464CBFFC17D985B2006A7250 /* ShootFrameDefault@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +372,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -316,7 +396,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -329,6 +409,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "veno/veno-Prefix.pch";
 				INFOPLIST_FILE = "veno/veno-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -340,6 +421,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "veno/veno-Prefix.pch";
 				INFOPLIST_FILE = "veno/veno-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
