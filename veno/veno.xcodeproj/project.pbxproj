@@ -32,6 +32,9 @@
 		464CBFFA17D985B2006A7250 /* ShootFocusDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE817D985B2006A7250 /* ShootFocusDefault@2x.png */; };
 		464CBFFB17D985B2006A7250 /* ShootFrameDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFE917D985B2006A7250 /* ShootFrameDefault.png */; };
 		464CBFFC17D985B2006A7250 /* ShootFrameDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CBFEA17D985B2006A7250 /* ShootFrameDefault@2x.png */; };
+		464CC00017D9AA63006A7250 /* PublicVenoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 464CBFFF17D9AA63006A7250 /* PublicVenoViewController.m */; };
+		464CC00417D9ACA2006A7250 /* AddVeno.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CC00217D9ACA2006A7250 /* AddVeno.png */; };
+		464CC00517D9ACA2006A7250 /* AddVeno@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464CC00317D9ACA2006A7250 /* AddVeno@2x.png */; };
 		464E18E117D75E4700816CB6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E017D75E4700816CB6 /* CoreMedia.framework */; };
 		464E18E317D75E4C00816CB6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E217D75E4C00816CB6 /* CoreVideo.framework */; };
 		464E18E517D75E5200816CB6 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E417D75E5100816CB6 /* ImageIO.framework */; };
@@ -82,6 +85,10 @@
 		464CBFE817D985B2006A7250 /* ShootFocusDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShootFocusDefault@2x.png"; sourceTree = "<group>"; };
 		464CBFE917D985B2006A7250 /* ShootFrameDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShootFrameDefault.png; sourceTree = "<group>"; };
 		464CBFEA17D985B2006A7250 /* ShootFrameDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ShootFrameDefault@2x.png"; sourceTree = "<group>"; };
+		464CBFFE17D9AA63006A7250 /* PublicVenoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicVenoViewController.h; sourceTree = "<group>"; };
+		464CBFFF17D9AA63006A7250 /* PublicVenoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicVenoViewController.m; sourceTree = "<group>"; };
+		464CC00217D9ACA2006A7250 /* AddVeno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddVeno.png; sourceTree = "<group>"; };
+		464CC00317D9ACA2006A7250 /* AddVeno@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AddVeno@2x.png"; sourceTree = "<group>"; };
 		464E18E017D75E4700816CB6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		464E18E217D75E4C00816CB6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		464E18E417D75E5100816CB6 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -178,6 +185,15 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
+		464CC00117D9AC91006A7250 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				464CC00217D9ACA2006A7250 /* AddVeno.png */,
+				464CC00317D9ACA2006A7250 /* AddVeno@2x.png */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
 		46BE379417D4932700E33BC6 = {
 			isa = PBXGroup;
 			children = (
@@ -218,9 +234,12 @@
 		46BE37A617D4932700E33BC6 /* veno */ = {
 			isa = PBXGroup;
 			children = (
+				464CC00117D9AC91006A7250 /* Resource */,
 				46BE37AF17D4932700E33BC6 /* AppDelegate.h */,
 				46BE37B017D4932700E33BC6 /* AppDelegate.m */,
 				46BE37A717D4932700E33BC6 /* Supporting Files */,
+				464CBFFE17D9AA63006A7250 /* PublicVenoViewController.h */,
+				464CBFFF17D9AA63006A7250 /* PublicVenoViewController.m */,
 			);
 			path = veno;
 			sourceTree = "<group>";
@@ -312,6 +331,8 @@
 				464CBFFA17D985B2006A7250 /* ShootFocusDefault@2x.png in Resources */,
 				464CBFFB17D985B2006A7250 /* ShootFrameDefault.png in Resources */,
 				464CBFFC17D985B2006A7250 /* ShootFrameDefault@2x.png in Resources */,
+				464CC00417D9ACA2006A7250 /* AddVeno.png in Resources */,
+				464CC00517D9ACA2006A7250 /* AddVeno@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +351,7 @@
 				464B533E17D8DEBC000BC72F /* AVCamRecorder.m in Sources */,
 				464B533F17D8DEBC000BC72F /* AVCamUtilities.m in Sources */,
 				464B535817D8DEBC000BC72F /* VenoCameraViewController.m in Sources */,
+				464CC00017D9AA63006A7250 /* PublicVenoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

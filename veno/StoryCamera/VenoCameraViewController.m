@@ -12,10 +12,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "AVCamUtilities.h"
+#import "Tool.h"
 
 #define VideoDuration 6
+#define VideoLimitDuration 2
 
-@interface VenoCameraViewController () <AVCamCaptureManagerDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@interface VenoCameraViewController () <AVCamCaptureManagerDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
 {
     UIView *menuView;
     UIView *videoLapView;
@@ -29,7 +31,9 @@
     //time
     NSTimer *levelTimer;
     float time;
-    
+    NSMutableArray *assetArray;
+    NSMutableArray *clipTimeRanges;
+    NSMutableArray *assetFilePathArray;
 }
 
 - (CGPoint)convertToPointOfInterestFromViewCoordinates:(CGPoint)viewCoordinates;
@@ -40,6 +44,16 @@
 @end
 
 @implementation VenoCameraViewController
+
+-(void)back
+{
+    if (assetFilePathArray.count > 0) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete post" otherButtonTitles:nil, nil];
+        [actionSheet showInView:self.view];
+    }
+    else
+        [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 -(void)setUI
 {
@@ -55,6 +69,7 @@
     [actionCancelButton setFrame:CGRectMake(0, 0, 44, 44)];
     [actionCancelButton setBackgroundImage:[UIImage imageNamed:@"ActionCancelDefault.png"] forState:UIControlStateNormal];
     [actionCancelButton setBackgroundImage:[UIImage imageNamed:@"ActionCancelPressed.png"] forState:UIControlStateHighlighted];
+    [actionCancelButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [menuView addSubview:actionCancelButton];
     
     actionDoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -78,10 +93,22 @@
 {
 	[_captureManager.session stopRunning];
     [_captureManager setDelegate:nil];
+    for (NSString *tempFilePath in assetFilePathArray) {
+        [Tool deleteVideoFile:tempFilePath];
+    }
+    [assetFilePathArray removeAllObjects];
+    [assetArray removeAllObjects];
+    [clipTimeRanges removeAllObjects];
+    assetFilePathArray = nil;
+    assetArray = nil;
+    clipTimeRanges = nil;
 }
 
 - (void)viewDidLoad
 {
+    assetFilePathArray = [[NSMutableArray alloc] init];
+    assetArray = [NSMutableArray arrayWithCapacity:0];
+    clipTimeRanges = [NSMutableArray arrayWithCapacity:0];
     [self setUI];
 	if ( _captureManager == nil) {
 		_captureManager = [[AVCamCaptureManager alloc] init];
@@ -257,10 +284,9 @@
 
 -(void)videoRecordEnd
 {
-    debugLog(@"f");
     [levelTimer invalidate];
     [_captureManager stopRecording];
-    if (time > 3) {
+    if (time > VideoLimitDuration) {
         [actionDoneButton setEnabled:YES];
     }
     else{
@@ -345,7 +371,15 @@
 {
     CFRunLoopPerformBlock(CFRunLoopGetMain(), kCFRunLoopCommonModes, ^(void) {
         isVideoAction = NO;
-        
+        if (path != nil) {
+            [assetFilePathArray addObject:path];
+            AVURLAsset *asset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:path] options:nil];
+            [assetArray addObject:asset];
+            CMTimeRange timeRange = kCMTimeRangeZero;
+            timeRange.duration = asset.duration;
+            NSValue *timeRangeValue = [NSValue valueWithCMTimeRange:timeRange];
+            [clipTimeRanges addObject:timeRangeValue];
+        }
     });
 }
 
@@ -424,6 +458,14 @@
 //        [UIView commitAnimations];
 //        
 //    }
+}
+
+#pragma mark action sheet delegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 @end
