@@ -13,11 +13,12 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "AVCamUtilities.h"
 #import "Tool.h"
+#import "VenoPreviewViewController.h"
 
 #define VideoDuration 6
 #define VideoLimitDuration 2
 
-@interface VenoCameraViewController () <AVCamCaptureManagerDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
+@interface VenoCameraViewController () <AVCamCaptureManagerDelegate, UIGestureRecognizerDelegate, UIScrollViewDelegate, UIActionSheetDelegate, VenoPreviewViewControllerDelegate>
 {
     UIView *menuView;
     UIView *videoLapView;
@@ -34,6 +35,9 @@
     NSMutableArray *assetArray;
     NSMutableArray *clipTimeRanges;
     NSMutableArray *assetFilePathArray;
+    
+    BOOL _exporting;
+    UIActivityIndicatorView *loadingIndicator;
 }
 
 - (CGPoint)convertToPointOfInterestFromViewCoordinates:(CGPoint)viewCoordinates;
@@ -44,6 +48,30 @@
 @end
 
 @implementation VenoCameraViewController
+
+-(void)doneAction
+{
+    if (assetArray.count <= 0 || [[_captureManager recorder] isRecording] || time <= VideoLimitDuration) {
+        return;
+    }
+    [_captureManager.session stopRunning];
+    [_captureManager setDelegate:nil];
+    
+    BOOL userHasSelectedClips = NO;
+    for (AVURLAsset *clip in assetArray) {
+        if (! [clip isKindOfClass:[NSNull class]]) {
+            userHasSelectedClips = YES;
+            break;
+        }
+    }
+    
+    // Synchronize changes with the editor.
+    [self synchronizeWithEditor];
+    if (_exporting) {
+        return;
+    }
+    [self beginExport];
+}
 
 -(void)back
 {
@@ -78,7 +106,13 @@
     [actionDoneButton setBackgroundImage:[UIImage imageNamed:@"ActionDoneEnabled.png"] forState:UIControlStateNormal];
     [actionDoneButton setBackgroundImage:[UIImage imageNamed:@"ActionDonePressed.png"] forState:UIControlStateHighlighted];
     [actionDoneButton setEnabled:NO];
+    [actionDoneButton addTarget:self action:@selector(doneAction) forControlEvents:UIControlEventTouchUpInside];
     [menuView addSubview:actionDoneButton];
+    
+    loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [loadingIndicator setFrame:CGRectMake(screenframe.size.width-35, 10, 25, 25)];
+    loadingIndicator.hidden = YES;
+    [menuView addSubview:loadingIndicator];
     
     videoPreviewView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, screenframe.size.width, screenframe.size.height-StatusBarHeight-44-96)];
     [videoPreviewView setBackgroundColor:[UIColor clearColor]];
@@ -102,10 +136,21 @@
     assetFilePathArray = nil;
     assetArray = nil;
     clipTimeRanges = nil;
+    self.editor = nil;
+    loadingIndicator = nil;
+    actionDoneButton = nil;
+    menuView = nil;
+    videoLapView = nil;
+    videoPreviewView = nil;
+    overlyView = nil;
+    levelTimer = nil;
+    _captureManager = nil;
 }
 
 - (void)viewDidLoad
 {
+    self.editor = [[SimpleEditor alloc] init];
+    _exporting = NO;
     assetFilePathArray = [[NSMutableArray alloc] init];
     assetArray = [NSMutableArray arrayWithCapacity:0];
     clipTimeRanges = [NSMutableArray arrayWithCapacity:0];
@@ -466,6 +511,110 @@
     if (buttonIndex == 0) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+#pragma mark -
+#pragma mark Editor Sync
+
+- (void)synchronizeEditorClipsWithOurClips
+{
+	NSMutableArray *validClips = [NSMutableArray arrayWithCapacity:0];
+	for (AVURLAsset *asset in assetArray) {
+		if (! [asset isKindOfClass:[NSNull class]]) {
+			[validClips addObject:asset];
+		}
+	}
+	self.editor.clips = validClips;
+}
+
+- (void)synchronizeEditorClipTimeRangesWithOurClipTimeRanges
+{
+	NSMutableArray *validClipTimeRanges = [NSMutableArray arrayWithCapacity:3];
+	for (NSValue *timeRange in clipTimeRanges) {
+		if (! [timeRange isKindOfClass:[NSNull class]]) {
+			[validClipTimeRanges addObject:timeRange];
+		}
+	}
+	self.editor.clipTimeRanges = [validClipTimeRanges copy] ;
+}
+
+- (void)synchronizeWithEditor
+{
+	// Clips
+	[self synchronizeEditorClipsWithOurClips];
+	[self synchronizeEditorClipTimeRangesWithOurClipTimeRanges];
+	
+	// Commentary
+	self.editor.commentary =  nil;
+	CMTime commentaryStartTime = CMTimeMakeWithSeconds(0.0, 600);
+	self.editor.commentaryStartTime = commentaryStartTime;
+	
+	// Transitions
+	CMTime transitionDuration = CMTimeMakeWithSeconds(1.0, 600) ;
+	self.editor.transitionDuration = transitionDuration;
+	self.editor.transitionType = SimpleEditorTransitionTypeNone;
+}
+
+#pragma mark -
+#pragma mark Export
+
+- (void)beginExport
+{
+    actionDoneButton.alpha = 0.0;
+    [loadingIndicator startAnimating];
+    [loadingIndicator setHidden:NO];
+    isVideoAction = YES;
+	_exporting = YES;
+	[self.editor buildCompositionObjectsForPlayback:NO];
+	AVAssetExportSession *session = [self.editor assetExportSessionWithPreset:AVAssetExportPresetHighestQuality];
+    
+	NSString *filePath = nil;
+	NSUInteger count = 0;
+	do {
+		filePath = NSTemporaryDirectory();
+		
+		NSString *numberString = count > 0 ? [NSString stringWithFormat:@"-%i", count] : @"";
+		filePath = [filePath stringByAppendingPathComponent:[NSString stringWithFormat:@"Output-%@.mp4", numberString]];
+		count++;
+	} while([[NSFileManager defaultManager] fileExistsAtPath:filePath]);
+	
+	session.outputURL = [NSURL fileURLWithPath:filePath];
+	session.outputFileType = AVFileTypeMPEG4;
+	[session exportAsynchronouslyWithCompletionHandler:^
+     {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             debugLog(@"%@",filePath);
+             [self exportDidFinish:session atPath:filePath];
+         });
+     }];
+}
+
+- (void)exportDidFinish:(AVAssetExportSession *)session atPath:(NSString *)filePath
+{
+	_exporting = NO;
+    actionDoneButton.alpha = 1.0;
+    [loadingIndicator stopAnimating];
+    [loadingIndicator setHidden:YES];
+	debugLog(@"ex");
+    [captureVideoPreviewLayer setHidden:YES];
+    VenoPreviewViewController *vc = [[VenoPreviewViewController alloc] init];
+    [vc setVideoFilePath:filePath];
+    [vc setDelegate:self];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark VenoPreviewViewController delegate
+-(void)publishVideo:(NSString *)filePath
+{
+    [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
+    [self.delegate publishVideo:filePath];
+}
+
+-(void)cancelPublishAndDeleteVideo
+{
+    [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end

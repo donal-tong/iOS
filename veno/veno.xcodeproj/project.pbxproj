@@ -42,6 +42,9 @@
 		464E18E917D75E5D00816CB6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18E817D75E5D00816CB6 /* MobileCoreServices.framework */; };
 		464E18EB17D75E6400816CB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18EA17D75E6400816CB6 /* QuartzCore.framework */; };
 		464E18ED17D75E6900816CB6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E18EC17D75E6900816CB6 /* AVFoundation.framework */; };
+		464E525B17DB0049009B18E5 /* SimpleEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E525A17DB0049009B18E5 /* SimpleEditor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		464E526817DB202A009B18E5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464E526717DB202A009B18E5 /* MediaPlayer.framework */; };
+		464E526B17DB2615009B18E5 /* VenoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 464E526A17DB2615009B18E5 /* VenoPreviewViewController.m */; };
 		46BE37A117D4932700E33BC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BE37A017D4932700E33BC6 /* UIKit.framework */; };
 		46BE37A317D4932700E33BC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BE37A217D4932700E33BC6 /* Foundation.framework */; };
 		46BE37A517D4932700E33BC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BE37A417D4932700E33BC6 /* CoreGraphics.framework */; };
@@ -96,6 +99,11 @@
 		464E18E817D75E5D00816CB6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		464E18EA17D75E6400816CB6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		464E18EC17D75E6900816CB6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		464E525917DB0049009B18E5 /* SimpleEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleEditor.h; sourceTree = "<group>"; };
+		464E525A17DB0049009B18E5 /* SimpleEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleEditor.m; sourceTree = "<group>"; };
+		464E526717DB202A009B18E5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		464E526917DB2615009B18E5 /* VenoPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenoPreviewViewController.h; sourceTree = "<group>"; };
+		464E526A17DB2615009B18E5 /* VenoPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenoPreviewViewController.m; sourceTree = "<group>"; };
 		46BE379D17D4932700E33BC6 /* veno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = veno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BE37A017D4932700E33BC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		46BE37A217D4932700E33BC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -116,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464E526817DB202A009B18E5 /* MediaPlayer.framework in Frameworks */,
+				464E18E117D75E4700816CB6 /* CoreMedia.framework in Frameworks */,
 				464B52AA17D8D6B8000BC72F /* AudioToolbox.framework in Frameworks */,
 				464E18ED17D75E6900816CB6 /* AVFoundation.framework in Frameworks */,
 				464E18EB17D75E6400816CB6 /* QuartzCore.framework in Frameworks */,
@@ -123,7 +133,6 @@
 				464E18E717D75E5700816CB6 /* AssetsLibrary.framework in Frameworks */,
 				464E18E517D75E5200816CB6 /* ImageIO.framework in Frameworks */,
 				464E18E317D75E4C00816CB6 /* CoreVideo.framework in Frameworks */,
-				464E18E117D75E4700816CB6 /* CoreMedia.framework in Frameworks */,
 				46BE37A117D4932700E33BC6 /* UIKit.framework in Frameworks */,
 				46BE37A317D4932700E33BC6 /* Foundation.framework in Frameworks */,
 				46BE37A517D4932700E33BC6 /* CoreGraphics.framework in Frameworks */,
@@ -156,6 +165,8 @@
 				464B532217D8DEBC000BC72F /* AVCamUtilities.m */,
 				464B533B17D8DEBC000BC72F /* VenoCameraViewController.h */,
 				464B533C17D8DEBC000BC72F /* VenoCameraViewController.m */,
+				464E525917DB0049009B18E5 /* SimpleEditor.h */,
+				464E525A17DB0049009B18E5 /* SimpleEditor.m */,
 			);
 			path = StoryCamera;
 			sourceTree = "<group>";
@@ -197,6 +208,7 @@
 		46BE379417D4932700E33BC6 = {
 			isa = PBXGroup;
 			children = (
+				464E526717DB202A009B18E5 /* MediaPlayer.framework */,
 				464B531C17D8DEBC000BC72F /* StoryCamera */,
 				464B529F17D8D606000BC72F /* UIHelper */,
 				46BE37A617D4932700E33BC6 /* veno */,
@@ -240,6 +252,8 @@
 				46BE37A717D4932700E33BC6 /* Supporting Files */,
 				464CBFFE17D9AA63006A7250 /* PublicVenoViewController.h */,
 				464CBFFF17D9AA63006A7250 /* PublicVenoViewController.m */,
+				464E526917DB2615009B18E5 /* VenoPreviewViewController.h */,
+				464E526A17DB2615009B18E5 /* VenoPreviewViewController.m */,
 			);
 			path = veno;
 			sourceTree = "<group>";
@@ -352,6 +366,8 @@
 				464B533F17D8DEBC000BC72F /* AVCamUtilities.m in Sources */,
 				464B535817D8DEBC000BC72F /* VenoCameraViewController.m in Sources */,
 				464CC00017D9AA63006A7250 /* PublicVenoViewController.m in Sources */,
+				464E525B17DB0049009B18E5 /* SimpleEditor.m in Sources */,
+				464E526B17DB2615009B18E5 /* VenoPreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

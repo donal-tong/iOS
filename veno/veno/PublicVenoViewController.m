@@ -8,8 +8,9 @@
 
 #import "PublicVenoViewController.h"
 #import "VenoCameraViewController.h"
+#import "VenoPreviewViewController.h"
 
-@interface PublicVenoViewController ()
+@interface PublicVenoViewController () <VenoCameraViewControllerDelegate>
 
 @end
 
@@ -18,6 +19,7 @@
 -(void)addVeno
 {
     VenoCameraViewController *vc = [[VenoCameraViewController alloc] init];
+    [vc setDelegate:self];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -38,6 +40,12 @@
 {
     [super viewDidLoad];
     [self setUI];
+}
+
+#pragma mark VenoCameraViewControllerDelegate
+-(void)publishVideo:(NSString *)filePath
+{
+    debugLog(@"%@",filePath);
 }
 
 @end

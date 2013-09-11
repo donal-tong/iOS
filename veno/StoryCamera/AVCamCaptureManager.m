@@ -448,26 +448,26 @@ bail:
 // Keep track of current device orientation so it can be applied to movie recordings and still image captures
 - (void)deviceOrientationDidChange
 {
-	UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
-    
-	if (deviceOrientation == UIDeviceOrientationPortrait) {
-		orientation = AVCaptureVideoOrientationPortrait;
-        [self.delegate captureManagerDeviceOrientationChanged:self withOrientation:deviceOrientation];
-    }
-	else if (deviceOrientation == UIDeviceOrientationPortraitUpsideDown) {
-		orientation = AVCaptureVideoOrientationPortraitUpsideDown;
-        [self.delegate captureManagerDeviceOrientationChanged:self withOrientation:deviceOrientation];
-    }
-	
-	// AVCapture and UIDevice have opposite meanings for landscape left and right (AVCapture orientation is the same as UIInterfaceOrientation)
-	else if (deviceOrientation == UIDeviceOrientationLandscapeLeft) {
-		orientation = AVCaptureVideoOrientationLandscapeRight;
-        [self.delegate captureManagerDeviceOrientationChanged:self withOrientation:deviceOrientation];
-    }
-	else if (deviceOrientation == UIDeviceOrientationLandscapeRight) {
-		orientation = AVCaptureVideoOrientationLandscapeLeft;
-        [self.delegate captureManagerDeviceOrientationChanged:self withOrientation:deviceOrientation];
-    }
+//	UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
+//    
+//	if (deviceOrientation == UIDeviceOrientationPortrait) {
+//		orientation = AVCaptureVideoOrientationPortrait;
+//        [self.delegate captureManagerDeviceOrientationChanged:self withOrientation:deviceOrientation];
+//    }
+//	else if (deviceOrientation == UIDeviceOrientationPortraitUpsideDown) {
+//		orientation = AVCaptureVideoOrientationPortraitUpsideDown;
+//        [self.delegate captureManagerDeviceOrientationChanged:self withOrientation:deviceOrientation];
+//    }
+//	
+//	// AVCapture and UIDevice have opposite meanings for landscape left and right (AVCapture orientation is the same as UIInterfaceOrientation)
+//	else if (deviceOrientation == UIDeviceOrientationLandscapeLeft) {
+//		orientation = AVCaptureVideoOrientationLandscapeRight;
+//        [self.delegate captureManagerDeviceOrientationChanged:self withOrientation:deviceOrientation];
+//    }
+//	else if (deviceOrientation == UIDeviceOrientationLandscapeRight) {
+//		orientation = AVCaptureVideoOrientationLandscapeLeft;
+//        [self.delegate captureManagerDeviceOrientationChanged:self withOrientation:deviceOrientation];
+//    }
 	
 	// Ignore device orientations for which there is no corresponding still image orientation (e.g. UIDeviceOrientationFaceUp)
 }
