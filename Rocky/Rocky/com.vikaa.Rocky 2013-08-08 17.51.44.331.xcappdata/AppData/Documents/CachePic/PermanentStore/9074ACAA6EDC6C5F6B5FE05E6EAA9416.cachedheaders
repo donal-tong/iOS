@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Connection</key>
+	<string>keep-alive</string>
+	<key>Content-Type</key>
+	<string>text/html</string>
+	<key>Date</key>
+	<string>Wed, 31 Jul 2013 14:27:56 GMT</string>
+	<key>Location</key>
+	<string>http://365wowo.sinaapp.com/upload/ww1.sinaimg.cn/bmiddle/a25a796ajw1dvu9mb3h2kj.jpg!w187h187</string>
+	<key>Server</key>
+	<string>nginx/0.8.54</string>
+	<key>Transfer-Encoding</key>
+	<string>Identity</string>
+	<key>X-ASIHTTPRequest-Response-Status-Code</key>
+	<integer>302</integer>
+	<key>X-Powered-By</key>
+	<string>PHP/5.3.6</string>
+</dict>
+</plist>

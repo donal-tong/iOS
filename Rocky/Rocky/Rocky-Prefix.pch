@@ -1,0 +1,101 @@
+//
+// Prefix header for all source files of the 'wowo' target in the 'wowo' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#endif
+
+#ifdef DEBUG
+//调试模式
+#define debugLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+#define VKWebSite @"http://365wowo.sinaapp.com"
+#define WebSiteApi @"http://365wowo.sinaapp.com/api"
+
+//发布模式
+#else
+
+#define debugLog(...)
+
+#define VKWebSite @"http://365wowo.sinaapp.com"
+#define WebSiteApi @"http://365wowo.sinaapp.com/api"
+
+#endif
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+//instagram
+#define INSTAGRAM_CLIENT_ID @"8786d9354eae4c92a9156c744aec1b74"
+#define INSTAGRAM_CLIENT_SECRET @"666dc33a74c0477d9c0754e1e6369d05"
+#define INSTAGRAM_REDIRECT_URL @"http://www.momoka.cc/oauthreturn/instagram"
+//QQ KEY
+#define TENCENT_AKEY @"801027781"
+#define TENCENT_SKEY @"c2cdcf5afeb897ff3e45b40d07d2f43d"
+#define TENCENT_REDIRECT_URL @"http://www.momoka.cc"
+#define TENCENT_WX_ID @"wx98226c5066ff31c0"
+//Sina KEY
+#define WeiboKey @"3802605071"
+#define WeiboSecret  @"5d8565a5eafcf8346c92026115aa22d8"
+#define WeiboRedirectURI @"http://www.momoka.cc/oauthreturn/sina"
+//paypal key
+#define kPayPalClientId @"Ab-GvhCzBk69PJYD3rDYWE_AvfMJCD8imVR2l0CJFSaMeCbI1n4cy4naGBIu"
+#define kPayPalReceiverEmail @"max.zhan@qq.com"
+
+#define FileImage(Iname) [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",[Tool returnImageFilePath],(Iname)]]
+
+#define isLogin [[NSUserDefaults standardUserDefaults] boolForKey:IsUserLogin]
+#define setIsLogin [[NSUserDefaults standardUserDefaults] setBool:YES forKey:IsUserLogin];[[NSUserDefaults standardUserDefaults] synchronize];
+#define setLogout [[NSUserDefaults standardUserDefaults] setBool:FALSE forKey:IsUserLogin];[[NSUserDefaults standardUserDefaults] synchronize];
+
+#define setWeiboUserId(userId) [[NSUserDefaults standardUserDefaults] setObject:(userId) forKey:WeiBoUserId];[[NSUserDefaults standardUserDefaults] synchronize];
+#define getUser_ID [[NSUserDefaults standardUserDefaults] objectForKey:WeiBoUserId]
+
+#define setWeiboAccessToken(AccessToken) [[NSUserDefaults standardUserDefaults] setObject:(AccessToken) forKey:WeiboAccessToken];[[NSUserDefaults standardUserDefaults] synchronize];
+#define getWeiboAccessToken [[NSUserDefaults standardUserDefaults] objectForKey:WeiboAccessToken]
+
+//load data first
+#define setFirstYES [[NSUserDefaults standardUserDefaults] setBool:YES forKey:LoadFirst];[[NSUserDefaults standardUserDefaults] synchronize];
+#define setFirstNO [[NSUserDefaults standardUserDefaults] setBool:NO forKey:LoadFirst];[[NSUserDefaults standardUserDefaults] synchronize];
+#define getFirst [[NSUserDefaults standardUserDefaults] boolForKey:LoadFirst]
+
+#define setUserInfo(UserInfo)  [[NSUserDefaults standardUserDefaults] setObject:UserInfo forKey:@"UserInfo"];[[NSUserDefaults standardUserDefaults] synchronize];
+#define getUserInfo [[NSUserDefaults standardUserDefaults] objectForKey:@"UserInfo"]
+
+//nsuserdefault key
+#define IsUserLogin @"isUserLogin"
+#define WeiBoUserId @"weibo.user.id"
+#define WeiboAccessToken @"WeiboAccessToken"
+#define LoadFirst @"LoadFirst"
+
+//TABLEVIEW SCROLL STATE
+#define TABLEVIEW_ACTION_INIT 1
+#define TABLEVIEW_ACTION_REFRESH 2
+#define TABLEVIEW_ACTION_SCROLL 3
+//TABLEVIEW DATA STATE
+#define TABLEVIEW_DATA_MORE 1
+#define TABLEVIEW_DATA_LOADING 2
+#define TABLEVIEW_DATA_FULL 3
+#define TABLEVIEW_DATA_EMPTY 4
+#define TABLEVIEW_DATA_ERROR 5
+
+#define TableViewDragUpHeight 10
+
+//actionsheetTag
+#define moreActionSheetTag 1
+#define wxActionSheetTag 2
+#define deleteSheetTag 3
+
+#define screenframe [[UIScreen mainScreen] bounds]
+
+#define StatusBarHeight 20
+
+#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)

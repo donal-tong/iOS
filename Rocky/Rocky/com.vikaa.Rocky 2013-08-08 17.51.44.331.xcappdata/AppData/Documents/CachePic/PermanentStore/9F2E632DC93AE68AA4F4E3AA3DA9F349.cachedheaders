@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Connection</key>
+	<string>keep-alive</string>
+	<key>Content-Length</key>
+	<string>0</string>
+	<key>Content-Type</key>
+	<string>text/html</string>
+	<key>Date</key>
+	<string>Wed, 31 Jul 2013 14:28:00 GMT</string>
+	<key>Location</key>
+	<string>http://pic.365wowo.com/upload/space/6/415d6f218df92de641d231a18acd8c6e.jpg!w187h187</string>
+	<key>Server</key>
+	<string>nginx/1.2.2</string>
+	<key>Via</key>
+	<string>10.67.15.25</string>
+	<key>X-ASIHTTPRequest-Response-Status-Code</key>
+	<integer>302</integer>
+	<key>X-Powered-By</key>
+	<string>PHP/5.3.8</string>
+</dict>
+</plist>

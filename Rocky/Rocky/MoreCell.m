@@ -1,0 +1,48 @@
+//
+//  MoreCell.m
+//  wowo
+//
+//  Created by Donal on 13-7-22.
+//  Copyright (c) 2013年 Donal. All rights reserved.
+//
+
+#import "MoreCell.h"
+
+
+@implementation MoreCell
+@synthesize tipLabel,loadingView;
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
+    {
+        tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 200, 21)];
+        [tipLabel setTextAlignment:NSTextAlignmentCenter];
+        [tipLabel setBackgroundColor:[UIColor clearColor]];
+        [self.contentView addSubview:tipLabel];
+        
+        loadingView = [[UIView alloc] initWithFrame:CGRectMake(220, 10, 25, 25)];
+        [loadingView setBackgroundColor:[UIColor clearColor]];
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [spinner startAnimating];
+        [loadingView addSubview:spinner];
+        [self.contentView addSubview:loadingView];
+    }
+    
+    return self;
+}
+
+- (void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    [UIView setAnimationsEnabled:NO];
+    [UIView setAnimationsEnabled:YES];
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    [super setBackgroundColor:backgroundColor];
+}
+
+
+@end
