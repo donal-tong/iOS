@@ -14,6 +14,7 @@
 #import "AVCamUtilities.h"
 #import "Tool.h"
 #import "VenoPreviewViewController.h"
+#import "ThumbnailViewController.h"
 
 #define VideoDuration 6
 #define VideoLimitDuration 2
@@ -114,11 +115,11 @@
     loadingIndicator.hidden = YES;
     [menuView addSubview:loadingIndicator];
     
-    videoPreviewView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, screenframe.size.width, screenframe.size.height-StatusBarHeight-44-96)];
+    videoPreviewView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, screenframe.size.width, 320)];
     [videoPreviewView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:videoPreviewView];
     
-    overlyView = [[UIView alloc] initWithFrame:CGRectMake(0, screenframe.size.height - 96, screenframe.size.width, 96)];
+    overlyView = [[UIView alloc] initWithFrame:CGRectMake(0,  364, screenframe.size.width, screenframe.size.height - 366)];
     [overlyView setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:overlyView];
 }
@@ -587,6 +588,8 @@
              [self exportDidFinish:session atPath:filePath];
          });
      }];
+//    ThumbnailViewController *thumbnailController = [[ThumbnailViewController alloc] initWithEditor:self.editor] ;
+//   [self presentViewController:thumbnailController animated:YES completion:nil];
 }
 
 - (void)exportDidFinish:(AVAssetExportSession *)session atPath:(NSString *)filePath

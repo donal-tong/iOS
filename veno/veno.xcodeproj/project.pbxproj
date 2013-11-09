@@ -54,6 +54,7 @@
 		46BE37B317D4932700E33BC6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BE37B217D4932700E33BC6 /* Default.png */; };
 		46BE37B517D4932700E33BC6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BE37B417D4932700E33BC6 /* Default@2x.png */; };
 		46BE37B717D4932700E33BC6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46BE37B617D4932700E33BC6 /* Default-568h@2x.png */; };
+		46C5EF44182DD82300EB6292 /* ThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46C5EF43182DD82300EB6292 /* ThumbnailViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,8 @@
 		46BE37B217D4932700E33BC6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		46BE37B417D4932700E33BC6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		46BE37B617D4932700E33BC6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		46C5EF42182DD82300EB6292 /* ThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailViewController.h; sourceTree = "<group>"; };
+		46C5EF43182DD82300EB6292 /* ThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +170,8 @@
 				464B533C17D8DEBC000BC72F /* VenoCameraViewController.m */,
 				464E525917DB0049009B18E5 /* SimpleEditor.h */,
 				464E525A17DB0049009B18E5 /* SimpleEditor.m */,
+				46C5EF42182DD82300EB6292 /* ThumbnailViewController.h */,
+				46C5EF43182DD82300EB6292 /* ThumbnailViewController.m */,
 			);
 			path = StoryCamera;
 			sourceTree = "<group>";
@@ -300,6 +305,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = vikaa;
+				TargetAttributes = {
+					46BE379C17D4932700E33BC6 = {
+						DevelopmentTeam = E2Z22DZK2A;
+					};
+				};
 			};
 			buildConfigurationList = 46BE379817D4932700E33BC6 /* Build configuration list for PBXProject "veno" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -360,6 +370,7 @@
 				46BE37AD17D4932700E33BC6 /* main.m in Sources */,
 				46BE37B117D4932700E33BC6 /* AppDelegate.m in Sources */,
 				464B52A617D8D606000BC72F /* EGORefreshTableHeaderView.m in Sources */,
+				46C5EF44182DD82300EB6292 /* ThumbnailViewController.m in Sources */,
 				464B52A717D8D606000BC72F /* Tool.m in Sources */,
 				464B533D17D8DEBC000BC72F /* AVCamCaptureManager.m in Sources */,
 				464B533E17D8DEBC000BC72F /* AVCamRecorder.m in Sources */,
@@ -444,11 +455,13 @@
 		46BE37BB17D4932700E33BC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "veno/veno-Prefix.pch";
 				INFOPLIST_FILE = "veno/veno-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -456,11 +469,13 @@
 		46BE37BC17D4932700E33BC6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "veno/veno-Prefix.pch";
 				INFOPLIST_FILE = "veno/veno-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos6.1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

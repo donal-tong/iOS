@@ -18,37 +18,21 @@
 //调试模式
 #define debugLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 
-#define VKWebSite @"http://365wowo.sinaapp.com"
-#define WebSiteApi @"http://365wowo.sinaapp.com/api"
 
 //发布模式
 #else
 
 #define debugLog(...)
 
-#define VKWebSite @"http://365wowo.sinaapp.com"
-#define WebSiteApi @"http://365wowo.sinaapp.com/api"
 
 #endif
 
 #define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 
-//instagram
-#define INSTAGRAM_CLIENT_ID @"8786d9354eae4c92a9156c744aec1b74"
-#define INSTAGRAM_CLIENT_SECRET @"666dc33a74c0477d9c0754e1e6369d05"
-#define INSTAGRAM_REDIRECT_URL @"http://www.momoka.cc/oauthreturn/instagram"
-//QQ KEY
-#define TENCENT_AKEY @"801027781"
-#define TENCENT_SKEY @"c2cdcf5afeb897ff3e45b40d07d2f43d"
-#define TENCENT_REDIRECT_URL @"http://www.momoka.cc"
-#define TENCENT_WX_ID @"wx98226c5066ff31c0"
 //Sina KEY
-#define WeiboKey @"3802605071"
-#define WeiboSecret  @"5d8565a5eafcf8346c92026115aa22d8"
-#define WeiboRedirectURI @"http://www.momoka.cc/oauthreturn/sina"
-//paypal key
-#define kPayPalClientId @"Ab-GvhCzBk69PJYD3rDYWE_AvfMJCD8imVR2l0CJFSaMeCbI1n4cy4naGBIu"
-#define kPayPalReceiverEmail @"max.zhan@qq.com"
+#define WeiboKey @""
+#define WeiboSecret  @" "
+#define WeiboRedirectURI @""
 
 #define FileImage(Iname) [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",[Tool returnImageFilePath],(Iname)]]
 
