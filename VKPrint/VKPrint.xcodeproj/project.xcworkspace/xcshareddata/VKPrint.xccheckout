@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6C627505-6C11-43CC-B5A7-1A3CBC85DD42</string>
+	<key>IDESourceControlProjectName</key>
+	<string>VKPrint</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EABD993F-6951-4A98-9B9D-40CA8F0C169D</key>
+		<string>https://github.com/donal-tong/VKPrint.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>VKPrint.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EABD993F-6951-4A98-9B9D-40CA8F0C169D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/donal-tong/VKPrint.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EABD993F-6951-4A98-9B9D-40CA8F0C169D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EABD993F-6951-4A98-9B9D-40CA8F0C169D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VKPrint</string>
+		</dict>
+	</array>
+</dict>
+</plist>
